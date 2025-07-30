@@ -1,6 +1,4 @@
-
-
-```markdown
+````markdown
 # Column Filtering Guide
 
 ## Client-Side vs Server-Side Filtering
@@ -13,12 +11,13 @@ To implement server-side filtering, disable client-side filtering and manage dat
 
 ```jsx
 const table = useReactTable({
-  data,
-  columns,
-  getCoreRowModel: getCoreRowModel(),
-  manualFiltering: true // Disable client-side filtering
-})
+	data,
+	columns,
+	getCoreRowModel: getCoreRowModel(),
+	manualFiltering: true // Disable client-side filtering
+});
 ```
+````
 
 ### Client-Side Filtering
 
@@ -28,8 +27,8 @@ Enable client-side filtering with:
 import { getFilteredRowModel } from '@tanstack/svelte-table';
 
 const table = useReactTable({
-  getFilteredRowModel: getFilteredRowModel()
-})
+	getFilteredRowModel: getFilteredRowModel()
+});
 ```
 
 ---
@@ -48,8 +47,8 @@ const columnFilters = table.getState.columnFilters;
 const [columnFilters, setColumnFilters] = useState([]);
 
 const table = useReactTable({
-  state: { columnFilters },
-  onColumnFiltersChange: setColumnFilters
+	state: { columnFilters },
+	onColumnFiltersChange: setColumnFilters
 });
 ```
 
@@ -57,9 +56,9 @@ const table = useReactTable({
 
 ```jsx
 const table = useReactTable({
-  initialState: {
-    columnFilters: [{ id: 'name', value: 'John' }]
-  }
+	initialState: {
+		columnFilters: [{ id: 'name', value: 'John' }]
+	}
 });
 ```
 
@@ -79,12 +78,14 @@ Define custom filter logic:
 
 ```ts
 const startsWithFilterFn = (row, columnId, filterValue) => {
-  const value = row.getValue(columnId)?.toString().toLowerCase().trim();
-  return value?.startsWith(filterValue?.toLowerCase().trim());
+	const value = row.getValue(columnId)?.toString().toLowerCase().trim();
+	return value?.startsWith(filterValue?.toLowerCase().trim());
 };
 
 // Add to table options
-filterFns: { startsWith: startsWithFilterFn }
+filterFns: {
+	startsWith: startsWithFilterFn;
+}
 ```
 
 ### Customizing Filter Behavior
@@ -105,11 +106,11 @@ startsWithFilterFn.resolveFilterValue = (val) => val?.toString().trim();
 
 ```jsx
 const columns = [
-  {
-    header: 'ID',
-    accessorKey: 'id',
-    enableColumnFilter: false // Disable filtering for this column
-  }
+	{
+		header: 'ID',
+		accessorKey: 'id',
+		enableColumnFilter: false // Disable filtering for this column
+	}
 ];
 ```
 
@@ -118,8 +119,8 @@ const columns = [
 Control how sub-rows are filtered with:
 
 ```jsx
-filterFromLeafRows: true // Include sub-rows in filtering
-maxLeafRowFilterDepth: 0 // Only filter root rows
+filterFromLeafRows: true; // Include sub-rows in filtering
+maxLeafRowFilterDepth: 0; // Only filter root rows
 ```
 
 ---
@@ -143,13 +144,13 @@ maxLeafRowFilterDepth: 0 // Only filter root rows
 import { getFilteredRowModel } from '@tanstack/svelte-table';
 
 const table = useReactTable({
-  getFilteredRowModel: getFilteredRowModel(),
-  columns: [
-    {
-      filterFn: 'includesString',
-      // Column configuration
-    }
-  ]
+	getFilteredRowModel: getFilteredRowModel(),
+	columns: [
+		{
+			filterFn: 'includesString'
+			// Column configuration
+		}
+	]
 });
 ```
 
@@ -176,6 +177,8 @@ const customFilter = (row, columnId, value) => {
 - **Sub-Row Filtering**: Use `filterFromLeafRows` and `maxLeafRowFilterDepth` for nested data
 
 For more details on API references, see the [Column Filtering API Reference](#column-filter-apis).
+
 ```
 
 This documentation structure retains all original examples while organizing the content into logical sections with proper code formatting. The privacy notice and unrelated menu items have been omitted as per sanitization requirements. Framework-specific code examples are preserved as they appear in the original text.
+```

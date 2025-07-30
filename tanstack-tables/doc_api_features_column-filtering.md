@@ -1,6 +1,4 @@
-
-
-```ts
+````ts
 // TanStack Table v8 Column Filtering Documentation
 
 ## Can-Filter
@@ -23,12 +21,14 @@ export interface ColumnFilter {
   id: string;
   value: unknown;
 }
-```
+````
 
 ---
 
 ## Filter Functions
+
 ### Built-in Filter Functions
+
 - `includesString`: Case-insensitive string inclusion.
 - `includesStringSensitive`: Case-sensitive string inclusion.
 - `equalsString`: Case-insensitive equality.
@@ -43,74 +43,76 @@ export interface ColumnFilter {
 ---
 
 ### FilterFn Type
+
 ```ts
 export type FilterFn<TData extends AnyData> = {
-  (
-    row: Row<TData>,
-    columnId: string,
-    filterValue: any,
-    addMeta: (meta: any) => void
-  ): boolean;
-  resolveFilterValue?: TransformFilterValueFn<TData>;
-  autoRemove?: ColumnFilterAutoRemoveTestFn<TData>;
+	(row: Row<TData>, columnId: string, filterValue: any, addMeta: (meta: any) => void): boolean;
+	resolveFilterValue?: TransformFilterValueFn<TData>;
+	autoRemove?: ColumnFilterAutoRemoveTestFn<TData>;
 };
 
-export type CustomFilterFns<TData extends AnyData> = Record<
-  string,
-  FilterFn<TData>
->;
+export type CustomFilterFns<TData extends AnyData> = Record<string, FilterFn<TData>>;
 ```
 
 ---
 
 ### `filterFn.resolveFilterValue`
+
 Transforms the filter value before applying it:
+
 ```ts
 const exampleFilter: FilterFn = {
-  // ...filter function
-  resolveFilterValue: (value, column) => value.trim().toLowerCase(),
+	// ...filter function
+	resolveFilterValue: (value, column) => value.trim().toLowerCase()
 };
 ```
 
 ---
 
 ### `filterFn.autoRemove`
+
 Automatically removes filters with certain values:
+
 ```ts
 const booleanFilter: FilterFn = {
-  // ...filter function
-  autoRemove: (value) => value === false,
+	// ...filter function
+	autoRemove: (value) => value === false
 };
 ```
 
 ---
 
 ### Using Filter Functions
+
 #### Built-in Usage
+
 ```ts
 const column = columnHelper.accessor('name', {
-  filterFn: 'includesString',
+	filterFn: 'includesString'
 });
 ```
 
 #### Custom Filter
+
 ```ts
 // Define a custom filter
 const myFilter: FilterFn = (row, id, value, addMeta) => {
-  // Implementation
-  return true;
+	// Implementation
+	return true;
 };
 
 // Use it in a column
 const column = columnHelper.accessor('custom', {
-  filterFn: myFilter,
+	filterFn: myFilter
 });
 ```
 
 ---
 
 ### Filter Meta Example
+
 Using `addMeta` to store filter metadata for sorting:
+
 ```ts
 import { sortingFns } from '@tanstack/react-table';
 import { rankItem, compareItems } from '@tanstack/match-sorter-utils';
@@ -133,12 +135,15 @@ const fuzzySort = (rowA, rowB, columnId) => {
 ---
 
 ## Column Definition Options
+
 ### `filterFn`
+
 ```ts
 filterFn?: FilterFn | keyof FilterFns | BuiltInFilterFn;
 ```
 
 ### `enableColumnFilter`
+
 ```ts
 enableColumnFilter?: boolean;
 ```
@@ -146,7 +151,9 @@ enableColumnFilter?: boolean;
 ---
 
 ## Column API
+
 ### Methods
+
 - `getCanFilter()`: Checks if filtering is enabled.
 - `getFilterIndex()`: Returns the filter's index in `columnFilters`.
 - `getIsFiltered()`: Checks if the column has active filters.
@@ -158,15 +165,20 @@ enableColumnFilter?: boolean;
 ---
 
 ## Row API
+
 ### Properties
+
 - `columnFilters`: Map of filter pass/fail statuses.
 - `columnFiltersMeta`: Stores metadata from filters.
 
 ---
 
 ## Table Options
+
 ### `filterFns`
+
 Define custom filters:
+
 ```ts
 declare module '@tanstack/table-core' {
   interface FilterFns {
@@ -182,31 +194,37 @@ const table = useTable({
 ```
 
 ### `filterFromLeafRows`
+
 ```ts
 filterFromLeafRows?: boolean;
 ```
 
 ### `maxLeafRowFilterDepth`
+
 ```ts
 maxLeafRowFilterDepth?: number;
 ```
 
 ### `enableFilters`
+
 ```ts
 enableFilters?: boolean;
 ```
 
 ### `manualFiltering`
+
 ```ts
 manualFiltering?: boolean;
 ```
 
 ### `onColumnFiltersChange`
+
 ```ts
 onColumnFiltersChange?: (updater: Updater<ColumnFiltersState>) => void;
 ```
 
 ### `enableColumnFilters`
+
 ```ts
 enableColumnFilters?: boolean;
 ```
@@ -214,7 +232,9 @@ enableColumnFilters?: boolean;
 ---
 
 ## Table API
+
 ### Methods
+
 - `setColumnFilters(updater)`: Updates column filters.
 - `resetColumnFilters(defaultState?)`: Resets filters.
 - `getPreFilteredRowModel()`: Returns unfiltered rows.
@@ -223,32 +243,36 @@ enableColumnFilters?: boolean;
 ---
 
 ## Example: Custom Filter Setup
+
 ```ts
 // Define custom filter
 const myFilter: FilterFn = (row, id, value, addMeta) => {
-  // Logic here
-  return true;
+	// Logic here
+	return true;
 };
 
 // Usage in column
 const columns = [
-  columnHelper.accessor('age', {
-    filterFn: 'inNumberRange',
-  }),
-  columnHelper.accessor('tags', {
-    filterFn: 'arrIncludes',
-  }),
+	columnHelper.accessor('age', {
+		filterFn: 'inNumberRange'
+	}),
+	columnHelper.accessor('tags', {
+		filterFn: 'arrIncludes'
+	})
 ];
 ```
 
 ---
 
 ## Important Notes
+
 - **Server-Side Filtering**: Set `manualFiltering={true}` to handle filtering externally.
 - **Metadata Usage**: Use `addMeta` to store sorting/ranking data during filtering.
 - **State Management**: Use `setColumnFilters` to programmatically update filters.
 
 For more details, refer to the official [TanStack Table documentation](https://tanstack.com/table).
+
 ```
 
 This documentation structure organizes the technical details into clear sections, includes examples, and maintains the original API references while omitting non-technical content like privacy notices and navigation links.
+```

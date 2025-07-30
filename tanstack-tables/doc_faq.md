@@ -1,57 +1,76 @@
-
-
-```markdown
+````markdown
 # TanStack Table v8 FAQ
 
 ## How do I stop infinite rendering loops?
 
 ### Pitfall 1: Creating new columns or data on every render
+
 When columns or data are redefined on every render, React detects a new reference, triggering infinite re-renders.
 
 #### Bad Example:
+
 ```javascript
 export default function MyComponent() {
-  const columns = [/* ... */]; // New array on every render
-  const data = [/* ... */]; // New array on every render
-  const table = useReactTable({ columns, data });
-  return <table>...</table>;
+	const columns = [
+		/* ... */
+	]; // New array on every render
+	const data = [
+		/* ... */
+	]; // New array on every render
+	const table = useReactTable({ columns, data });
+	return <table>...</table>;
 }
 ```
+````
 
 ### Solution 1: Use Stable References
+
 Use `useMemo` or `useState` to ensure stable references.
 
 #### Good Example:
+
 ```javascript
 export default function MyComponent() {
-  const columns = useMemo(() => [/* ... */], []);
-  const [data, setData] = useState(() => [/* ... */]);
-  const table = useReactTable({ columns, data });
-  return <table>...</table>;
+	const columns = useMemo(
+		() => [
+			/* ... */
+		],
+		[]
+	);
+	const [data, setData] = useState(() => [
+		/* ... */
+	]);
+	const table = useReactTable({ columns, data });
+	return <table>...</table>;
 }
 ```
 
 ### Pitfall 2: Mutating columns/data in place
+
 Mutating data inline (e.g., `data.filter()`) creates new references.
 
 #### Bad Example:
+
 ```javascript
 useReactTable({
-  data: data?.filter(d => d.isActive) ?? [], // Creates new array on every render
-  columns
+	data: data?.filter((d) => d.isActive) ?? [], // Creates new array on every render
+	columns
 });
 ```
 
 ### Solution 2: Memoize Transformations
+
 Use `useMemo` to stabilize transformed data.
 
 #### Good Example:
+
 ```javascript
-const filteredData = useMemo(() => data?.filter(d => d.isActive) ?? [], [data]);
+const filteredData = useMemo(() => data?.filter((d) => d.isActive) ?? [], [data]);
 useReactTable({ data: filteredData, columns });
 ```
 
 ### React Forget Note
+
 Future React versions may handle this automatically, but for now, memoization is required.
 
 ---
@@ -59,31 +78,34 @@ Future React versions may handle this automatically, but for now, memoization is
 ## How do I stop table state from automatically resetting when data changes?
 
 ### Solution: Disable Auto-Reset
+
 Use `autoReset*` options with a flag to prevent state resets during data updates.
 
 #### Example:
+
 ```javascript
 const [data, setData] = useState([]);
 const skipPageResetRef = useRef();
 
 const updateData = (newData) => {
-  skipPageResetRef.current = true;
-  setData(newData);
+	skipPageResetRef.current = true;
+	setData(newData);
 };
 
 useEffect(() => {
-  skipPageResetRef.current = false;
+	skipPageResetRef.current = false;
 }, [data]);
 
 useReactTable({
-  /* ... */
-  autoResetPageIndex: !skipPageResetRef.current,
-  autoResetExpanded: !skipPageResetRef.current,
+	/* ... */
+	autoResetPageIndex: !skipPageResetRef.current,
+	autoResetExpanded: !skipPageResetRef.current
 });
 ```
 
 This prevents state (like pagination or expansion) from resetting when data updates.
-``` 
+
+```
 
 This documentation format:
 - Organizes content into clear sections with headers

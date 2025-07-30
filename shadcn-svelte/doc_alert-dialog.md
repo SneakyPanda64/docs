@@ -1,5 +1,3 @@
-
-
 # Alert Dialog Component
 
 A modal dialog that interrupts the user with important content and expects a response.
@@ -9,11 +7,13 @@ A modal dialog that interrupts the user with important content and expects a res
 ## Installation
 
 ### CLI
+
 ```bash
 pnpm dlx shadcn-svelte@latest add alert-dialog
 ```
 
 ### Manual Installation
+
 ```bash
 npm install @shadcn/svelte
 # or
@@ -27,28 +27,30 @@ yarn add @shadcn/svelte
 ## Usage
 
 ### Example Code
+
 ```svelte
 <script lang="ts">
-  import * as AlertDialog from "@shadcn/svelte/alert-dialog";
-  import { buttonVariants } from "@shadcn/svelte/button";
+	import * as AlertDialog from '@shadcn/svelte/alert-dialog';
+	import { buttonVariants } from '@shadcn/svelte/button';
 </script>
 
 <AlertDialog.Root>
-  <AlertDialog.Trigger class={buttonVariants({ variant: "outline" })}>
-    Show Dialog
-  </AlertDialog.Trigger>
-  <AlertDialog.Content>
-    <AlertDialog.Header>
-      <AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>
-      <AlertDialog.Description>
-        This action cannot be undone. This will permanently delete your account and remove your data from our servers.
-      </AlertDialog.Description>
-    </AlertDialog.Header>
-    <AlertDialog.Footer>
-      <AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
-      <AlertDialog.Action>Continue</AlertDialog.Action>
-    </AlertDialog.Footer>
-  </AlertDialog.Content>
+	<AlertDialog.Trigger class={buttonVariants({ variant: 'outline' })}>
+		Show Dialog
+	</AlertDialog.Trigger>
+	<AlertDialog.Content>
+		<AlertDialog.Header>
+			<AlertDialog.Title>Are you absolutely sure?</AlertDialog.Title>
+			<AlertDialog.Description>
+				This action cannot be undone. This will permanently delete your account and remove your data
+				from our servers.
+			</AlertDialog.Description>
+		</AlertDialog.Header>
+		<AlertDialog.Footer>
+			<AlertDialog.Cancel>Cancel</AlertDialog.Cancel>
+			<AlertDialog.Action>Continue</AlertDialog.Action>
+		</AlertDialog.Footer>
+	</AlertDialog.Content>
 </AlertDialog.Root>
 ```
 
@@ -57,6 +59,7 @@ yarn add @shadcn/svelte
 ## Structure
 
 ### Components
+
 - **Root**: The root container for the alert dialog.
 - **Trigger**: The element that opens the dialog (e.g., a button).
 - **Content**: The main content of the dialog.
@@ -72,7 +75,9 @@ yarn add @shadcn/svelte
 ## API Reference
 
 ### Props & Events
+
 - **Root**:
+
   - `open` (prop): Controls the open state of the dialog.
   - `onOpenChange` (event): `(open: boolean) => void`): Fires when the open state changes.
 
@@ -91,9 +96,11 @@ The Alert Dialog uses Tailwind CSS by default. Customize the appearance by overr
 ---
 
 ## Special Sponsor
+
 We're looking for one partner to be featured here. Support the project and reach thousands of developers. [Reach out](https://shadcn.com) for details.
 
 ---
 
 ## Credits
+
 Built by [shadcn](https://shadcn.com). Ported to Svelte by [Huntabyte](https://github.com/Huntabyte) & [CokaKoala](https://github.com/CokaKoala).

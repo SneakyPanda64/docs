@@ -120,6 +120,7 @@ Bindings to component exports require explicit definition with the `$bindable()`
   ```
 - **New Syntax (Svelte 5):**  
    Event handlers become properties:
+
   ```svelte
   <script>
   	let count = $state(0);
@@ -150,6 +151,7 @@ You can also use shorthand by passing a named function:
 - **Svelte 4:** Used `createEventDispatcher` to emit events.
 - **Svelte 5:** Components should now accept callback props.  
    **Example in Parent Component:**
+
   ```svelte
   <script>
   	import Pump from './Pump.svelte';
@@ -183,6 +185,7 @@ You can also use shorthand by passing a named function:
 
 - **Event Modifiers:**  
    Since Svelte 5 does not support modifiers in the event attribute (e.g. `onclick|preventDefault`), wrap handlers instead:
+
   ```svelte
   <script>
   	function preventDefault(fn) {
@@ -195,6 +198,7 @@ You can also use shorthand by passing a named function:
 
   <button onclick={preventDefault(handler)}>Click me</button>
   ```
+
 - **Multiple Handlers:**  
    Duplicate event attributes are not allowed. Instead, chain calls within one handler:
   ```svelte
@@ -224,6 +228,7 @@ You can also use shorthand by passing a named function:
   <slot name="foo" message="hello" />
   ```
 - **Parent Component Example:**
+
   ```svelte
   <script>
   	import Child from './Child.svelte';
@@ -269,6 +274,7 @@ For individual component migration, use the VS Code command or the online Playgr
 - **Svelte 4:** Components were classes instantiated via `new Component({ ... })`.
 - **Svelte 5:** Components are functions. Use `mount` or `hydrate` for instantiation.  
    **Example:**
+
   ```js
   import { mount } from 'svelte';
   import App from './App.svelte';

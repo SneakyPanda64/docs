@@ -1,6 +1,4 @@
-
-
-```markdown
+````markdown
 # Progress Component
 
 The Progress component displays an indicator showing the completion progress of a task, typically rendered as a progress bar.
@@ -10,15 +8,19 @@ The Progress component displays an indicator showing the completion progress of 
 ## Installation
 
 ### Using CLI
+
 ```bash
 pnpm dlx shadcn-svelte@latest add progress
 ```
+````
 
 ### Manual Installation
+
 Import the component directly from the package:
+
 ```svelte
 <script lang="ts">
-  import { Progress } from "$lib/components/ui/progress/index.js";
+	import { Progress } from '$lib/components/ui/progress/index.js';
 </script>
 ```
 
@@ -27,26 +29,28 @@ Import the component directly from the package:
 ## Usage
 
 ### Basic Example
+
 ```svelte
 <script lang="ts">
-  import { Progress } from "$lib/components/ui/progress/index.js";
+	import { Progress } from '$lib/components/ui/progress/index.js';
 </script>
 
 <Progress value={33} max={100} class="w-[60%]" />
 ```
 
 ### Dynamic Example
+
 ```svelte
 <script lang="ts">
-  import { onMount } from "svelte";
-  import { $state, Progress } from "$lib/components/ui/progress/index.js";
+	import { onMount } from 'svelte';
+	import { $state, Progress } from '$lib/components/ui/progress/index.js';
 
-  let value = $state(13);
+	let value = $state(13);
 
-  onMount(() => {
-    const timer = setTimeout(() => (value = 66), 500);
-    return () => clearTimeout(timer);
-  });
+	onMount(() => {
+		const timer = setTimeout(() => (value = 66), 500);
+		return () => clearTimeout(timer);
+	});
 </script>
 
 <Progress {value} max={100} class="w-[60%]" />
@@ -55,15 +59,17 @@ Import the component directly from the package:
 ---
 
 ## Props
-| Prop   | Description                          | Type     | Default |
-|--------|--------------------------------------|----------|---------|
-| `value`| Current progress value               | `number` | `0`     |
-| `max`  | Maximum value of the progress        | `number` | `100`   |
-| `class`| Custom CSS class for styling         | `string` | -       |
+
+| Prop    | Description                   | Type     | Default |
+| ------- | ----------------------------- | -------- | ------- |
+| `value` | Current progress value        | `number` | `0`     |
+| `max`   | Maximum value of the progress | `number` | `100`   |
+| `class` | Custom CSS class for styling  | `string` | -       |
 
 ---
 
 ## Styling
+
 - Use the `class` prop to customize the width or appearance:
   ```svelte
   <Progress value={50} class="h-2 bg-gray-200 rounded-full dark:bg-gray-700" />
@@ -72,22 +78,26 @@ Import the component directly from the package:
 ---
 
 ## Theming
+
 The component is designed to work with Tailwind CSS by default. Adjust colors and sizes using utility classes.
 
 ---
 
 ## Examples
+
 ### Basic Progress Bar
+
 ```svelte
 <Progress value={40} class="w-full mb-4" />
 <Progress value={75} class="w-1/2" />
 ```
 
 ### Animated Progress
+
 ```svelte
 <script>
-  let progress = 0;
-  setInterval(() => (progress += 1), 100);
+	let progress = 0;
+	setInterval(() => (progress += 1), 100);
 </script>
 
 <Progress {progress} max={100} class="w-80" />
@@ -96,6 +106,7 @@ The component is designed to work with Tailwind CSS by default. Adjust colors an
 ---
 
 ## Props Reference
+
 - **value**: Current progress value (required if not using reactive state).
 - **max**: Total possible value (default: `100`).
 - **class**: Apply Tailwind classes for customization.
@@ -103,9 +114,11 @@ The component is designed to work with Tailwind CSS by default. Adjust colors an
 ---
 
 ## Notes
+
 - The component automatically calculates the percentage based on `value/max`.
 - Use `$state` for reactive updates in Svelte stores if needed.
-``` 
+
+```
 
 This documentation format:
 - Maintains all original examples

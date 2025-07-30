@@ -1,5 +1,3 @@
-
-
 # Toggle Component
 
 The Toggle component is a two-state button that can be either on or off. It can be used with icons, text, or both, and supports various sizes and states.
@@ -9,11 +7,13 @@ The Toggle component is a two-state button that can be either on or off. It can 
 ## Installation
 
 ### CLI
+
 ```bash
 pnpm dlx shadcn-svelte@latest add toggle
 ```
 
 ### Manual Installation
+
 ```bash
 # Using pnpm
 pnpm add @shadcn/svelte-toggle
@@ -33,9 +33,10 @@ yarn add @shadcn/svelte-toggle
 ## Usage
 
 ### Basic Usage
+
 ```svelte
 <script lang="ts">
-  import { Toggle } from "$lib/components/ui/toggle/index.js";
+	import { Toggle } from '$lib/components/ui/toggle/index.js';
 </script>
 
 <Toggle>Toggle</Toggle>
@@ -46,20 +47,22 @@ yarn add @shadcn/svelte-toggle
 ## Examples
 
 ### Default
+
 A basic toggle with an icon.
 
 ```svelte
 <script lang="ts">
-  import BoldIcon from "@lucide/svelte/icons/bold";
-  import { Toggle } from "$lib/components/ui/toggle/index.js";
+	import BoldIcon from '@lucide/svelte/icons/bold';
+	import { Toggle } from '$lib/components/ui/toggle/index.js';
 </script>
 
 <Toggle aria-label="toggle bold">
-  <BoldIcon class="size-4" />
+	<BoldIcon class="size-4" />
 </Toggle>
 ```
 
 ### Outline
+
 A toggle with an outline style.
 
 ```svelte
@@ -67,6 +70,7 @@ A toggle with an outline style.
 ```
 
 ### With Text
+
 A toggle with text content.
 
 ```svelte
@@ -74,6 +78,7 @@ A toggle with text content.
 ```
 
 ### Small
+
 A small-sized toggle.
 
 ```svelte
@@ -81,6 +86,7 @@ A small-sized toggle.
 ```
 
 ### Large
+
 A large-sized toggle.
 
 ```svelte
@@ -88,6 +94,7 @@ A large-sized toggle.
 ```
 
 ### Disabled
+
 A disabled toggle.
 
 ```svelte
@@ -100,14 +107,14 @@ A disabled toggle.
 
 ### Props
 
-| Property | Type | Default | Description |
-|---------|------|---------|-------------|
-| `defaultChecked` | `boolean` | `false` | The initial checked state. |
-| `checked` | `boolean` | - | Controlled checked state. |
-| `onCheckedChange` | `(checked: boolean) => void` | - | Callback when the toggle state changes. |
-| `disabled` | `boolean` | `false` | Disables the toggle. |
-| `size` | `'sm' | 'md' | 'lg'` | `'md'` | Size of the toggle. |
-| `variant` | `'default' | 'outline'` | `'default'` | Style variant of the toggle. |
+| Property          | Type                         | Default    | Description                             |
+| ----------------- | ---------------------------- | ---------- | --------------------------------------- | ---------------------------- | ------------------- |
+| `defaultChecked`  | `boolean`                    | `false`    | The initial checked state.              |
+| `checked`         | `boolean`                    | -          | Controlled checked state.               |
+| `onCheckedChange` | `(checked: boolean) => void` | -          | Callback when the toggle state changes. |
+| `disabled`        | `boolean`                    | `false`    | Disables the toggle.                    |
+| `size`            | `'sm'                        | 'md'       | 'lg'`                                   | `'md'`                       | Size of the toggle. |
+| `variant`         | `'default'                   | 'outline'` | `'default'`                             | Style variant of the toggle. |
 
 ### Slots
 
@@ -116,11 +123,13 @@ A disabled toggle.
 ---
 
 ## Component Source
+
 The component source can be found in the `src/lib/components/ui/toggle` directory of the Shadcn-Svelte repository.
 
 ---
 
 ## Theming
+
 The Toggle component can be customized using Tailwind CSS utilities. For example:
 
 ```svelte
@@ -130,12 +139,14 @@ The Toggle component can be customized using Tailwind CSS utilities. For example
 ---
 
 ## Props & Events
+
 - **Events**: `onCheckedChange` is emitted when the toggle state changes.
 - **Slots**: Use the default slot to add text or icons.
 
 ---
 
 ## Contributing
+
 Ported to Svelte by Huntabyte & CokaKoala. Based on the Shadcn UI system. For more details, refer to the [Shadcn-Svelte documentation](https://shadcn-svelte.shadcn.com/).).
 
 ---

@@ -1,13 +1,11 @@
-
-
 ```svelte
 <script lang="ts">
   // Import necessary utilities from TanStack Table and Svelte
   import { writable } from 'svelte/store';
-  import { 
-    createSvelteTable, 
-    flexRender, 
-    getCoreRowModel 
+  import {
+    createSvelteTable,
+    flexRender,
+    getCoreRowModel
   } from '@tanstack/svelte-table';
   import type { ColumnDef, TableOptions } from '@tanstack/svelte-table';
 
@@ -138,12 +136,15 @@
 ---
 
 #### Overview
+
 This example demonstrates a basic table implementation using **TanStack Table v8** with Svelte. It includes headers, rows, footers, and a rerender button for testing reactivity.
 
 ---
 
 #### Setup
+
 1. **Dependencies**:
+
    ```bash
    npm install @tanstack/svelte-table
    ```
@@ -157,6 +158,7 @@ This example demonstrates a basic table implementation using **TanStack Table v8
 #### Key Components
 
 1. **Data & Column Definitions**
+
    - **Data**: `defaultData` holds sample person records
    - **Columns**: `defaultColumns` defines:
      - `accessorKey`/`accessorFn` for data access
@@ -175,18 +177,20 @@ This example demonstrates a basic table implementation using **TanStack Table v8
 #### Template Structure
 
 - **Headers**:
+
   ```svelte
   {#each $table.getHeaderGroups() as headerGroup}
-    <!-- Renders headers dynamically -->
+  	<!-- Renders headers dynamically -->
   {/each}
   ```
 
 - **Rows**:
+
   ```svelte
   {#each $table.getRowModel().rows as row}
-    {#each row.getVisibleCells() as cell}
-      <!-- Renders cells using flexRender -->
-    {/each}
+  	{#each row.getVisibleCells() as cell}
+  		<!-- Renders cells using flexRender -->
+  	{/each}
   {/each}
   ```
 
@@ -196,31 +200,36 @@ This example demonstrates a basic table implementation using **TanStack Table v8
 ---
 
 #### Rerender Functionality
+
 The "Rerender" button triggers:
+
 ```typescript
 const rerender = () => {
-  options.update(options => ({ ...options, data: defaultData }));
+	options.update((options) => ({ ...options, data: defaultData }));
 };
 ```
+
 - Resets the table data to its initial state
 - Demonstrates reactive updates via Svelte stores
 
 ---
 
 #### Styling
+
 - Basic styling applied via `index.css` (e.g., `p-2` class)
 - Customize styles to match your design system
 
 ---
 
 #### Key APIs Used
+
 1. **`createSvelteTable`**  
    Creates a reactive table instance from configuration options
 
 2. **`flexRender`**  
    Renders headers/cells/footers using TanStack's unified API
 
-3. **Column Definitions**  
+3. **Column Definitions**
    - `accessorKey`: Direct property access
    - `accessorFn`: Custom accessor function
    - `header`, `cell`, `footer`: Render functions for UI elements
@@ -228,6 +237,7 @@ const rerender = () => {
 ---
 
 #### Usage Notes
+
 - **Reactivity**: The table automatically updates when data/columns change
 - **Footer Rendering**: Uses column `footer` properties to display column IDs
 - **Customization**: Extend column definitions for sorting/filtering/etc.
@@ -235,7 +245,9 @@ const rerender = () => {
 ---
 
 #### Full Example Code
+
 The complete code includes:
+
 - TypeScript type definitions
 - Full data/column definitions
 - Full template structure
@@ -245,8 +257,12 @@ The complete code includes:
 ---
 
 #### Next Steps
+
 1. Add sorting/filtering using built-in features
 2. Customize styling with your design system
 3. Add pagination using `getPaginationRowModel()`
 4. Implement column visibility controls
+
+```
+
 ```

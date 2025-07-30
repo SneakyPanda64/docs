@@ -1,15 +1,16 @@
-
-
-```markdown
+````markdown
 # Column Pinning Guide
 
 ## Overview
+
 TanStack Table provides state and APIs to implement column pinning, allowing columns to be fixed to the left or right of the table. This can be achieved using sticky CSS or by splitting columns into separate tables.
 
 ---
 
 ## How Column Pinning Affects Column Order
+
 Column pinning impacts the column order in the following sequence:
+
 1. **Pinning**: Columns are divided into `left`, `center` (unpinned), and `right` groups.
 2. **Manual Ordering**: The `columnOrder` state adjusts the order of unpinned columns.
 3. **Grouping**: Grouped columns are moved to the start if `groupedColumnMode` is set to reorder.
@@ -17,31 +18,37 @@ Column pinning impacts the column order in the following sequence:
 ---
 
 ## Column Pinning State Management
+
 ### Initializing Default Pinned Columns
+
 ```jsx
 const table = useReactTable({
-  initialState: {
-    columnPinning: {
-      left: ['id', 'name'],
-      right: ['actions']
-    }
-  }
+	initialState: {
+		columnPinning: {
+			left: ['id', 'name'],
+			right: ['actions']
+		}
+	}
 });
 ```
+````
 
 ### Managing State with Hooks
+
 ```jsx
 const [columnPinning, setColumnPinning] = useState({ left: [], right: [] });
 const table = useReactTable({
-  state: { columnPinning },
-  onColumnPinningChange: setColumnPinning
+	state: { columnPinning },
+	onColumnPinningChange: setColumnPinning
 });
 ```
 
 ---
 
 ## Useful Column Pinning APIs
+
 ### Column Methods
+
 - `column.getCanPin()`: Checks if a column can be pinned.
 - `column.pin(side: 'left' | 'right')`: Pins the column to the specified side.
 - `column.getIsPinned()`: Returns 'left', 'right', or null.
@@ -53,7 +60,9 @@ const table = useReactTable({
 ---
 
 ## Split Table Implementation
+
 For complex layouts, use these methods to separate pinned columns:
+
 - `table.getLeftHeaderGroups()`
 - `table.getCenterHeaderGroups()`
 - `table.getRightHeaderGroups()`
@@ -64,7 +73,9 @@ For complex layouts, use these methods to separate pinned columns:
 ---
 
 ## Example Usage
+
 ### Basic Pinned Columns
+
 ```jsx
 // Pin a column to the left
 const handlePin = (column) => {
@@ -82,36 +93,43 @@ const handlePin = (column) => {
 ---
 
 ## API Reference
+
 ### Column Pinning State Type
+
 ```typescript
 type ColumnPinningState = {
-  left: string[];
-  right: string[];
+	left: string[];
+	right: string[];
 };
 ```
 
 ---
 
 ## Examples
+
 - **Column Pinning Example**: [column-pinning](https://tanstack.com/table/examples/svelte/column-pinning)
 - **Sticky Column Pinning**: [sticky-column-pinning](https://tanstack.com/table/examples/svelte/sticky-column-pinning)
 
 ---
 
 ## Version Notes
+
 ⚠️ Some APIs (e.g., `getStart`, `getAfter`) are new in **v8.12.0**.
 
 ---
 
 ## Implementation Tips
+
 - Use `column.getStart()` and `column.getAfter()` to calculate sticky positions dynamically.
 - Apply box shadows using `getIsFirstColumn`/`getIsLastColumn` for visual separation between pinned groups.
 
 ---
 
 ## Related Features
+
 - [Column Ordering](column-ordering.md)
 - [Column Sizing](column-sizing.md)
+
 ```
 
 This documentation format:

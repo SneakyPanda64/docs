@@ -1,5 +1,3 @@
-
-
 # Data Table
 
 Powerful table and datagrids built using TanStack Table.
@@ -50,28 +48,28 @@ Define columns using `ColumnDef` from `@tanstack/table-core`:
 
 ```typescript
 // columns.ts
-import type { ColumnDef } from "@tanstack/table-core";
+import type { ColumnDef } from '@tanstack/table-core';
 
 export type Payment = {
-  id: string;
-  amount: number;
-  status: "Pending" | "Processing" | "Success" | "Failed";
-  email: string;
+	id: string;
+	amount: number;
+	status: 'Pending' | 'Processing' | 'Success' | 'Failed';
+	email: string;
 };
 
 export const columns: ColumnDef<Payment>[] = [
-  {
-    accessorKey: "status",
-    header: "Status",
-  },
-  {
-    accessorKey: "email",
-    header: "Email",
-  },
-  {
-    accessorKey: "amount",
-    header: "Amount",
-  },
+	{
+		accessorKey: 'status',
+		header: 'Status'
+	},
+	{
+		accessorKey: 'email',
+		header: 'Email'
+	},
+	{
+		accessorKey: 'amount',
+		header: 'Amount'
+	}
 ];
 ```
 
@@ -84,54 +82,48 @@ export const columns: ColumnDef<Payment>[] = [
 ```svelte
 <!-- data-table.svelte -->
 <script lang="ts">
-  import { createSvelteTable, FlexRender } from "$lib/components/ui/data-table";
-  import * as Table from "$lib/components/ui/table";
+	import { createSvelteTable, FlexRender } from '$lib/components/ui/data-table';
+	import * as Table from '$lib/components/ui/table';
 
-  type DataTableProps<TData, TValue> = {
-    data: TData[];
-    columns: ColumnDef<TData, TValue>[];
-  };
+	type DataTableProps<TData, TValue> = {
+		data: TData[];
+		columns: ColumnDef<TData, TValue>[];
+	};
 
-  let { data, columns }: DataTableProps<TData, TValue> = $props();
+	let { data, columns }: DataTableProps<TData, TValue> = $props();
 
-  const table = createSvelteTable({
-    data,
-    columns,
-    getCoreRowModel: getCoreRowModel(),
-  });
+	const table = createSvelteTable({
+		data,
+		columns,
+		getCoreRowModel: getCoreRowModel()
+	});
 </script>
 
 <div class="rounded-md border">
-  <Table.Root>
-    <Table.Header>
-      {#each table.getHeaderGroups as headerGroup}
-        <Table.Row>
-          {#each headerGroup.headers as header}
-            <Table.Head colspan={header.colSpan}>
-              <FlexRender
-                content={header.column.columnDef.header}
-                context={header.getContext()}
-              />
-            </Table.Head>
-          {/each}
-        </Table.Row>
-      {/each}
-    </Table.Header>
-    <Table.Body>
-      {#each table.getRowModel().rows as row}
-        <Table.Row>
-          {#each row.getVisibleCells() as cell}
-            <Table.Cell>
-              <FlexRender
-                content={cell.column.columnDef.cell}
-                context={cell.getContext()}
-              />
-            </Table.Cell>
-          {/each}
-        </Table.Row>
-      {/each}
-    </Table.Body>
-  </Table.Root>
+	<Table.Root>
+		<Table.Header>
+			{#each table.getHeaderGroups as headerGroup}
+				<Table.Row>
+					{#each headerGroup.headers as header}
+						<Table.Head colspan={header.colSpan}>
+							<FlexRender content={header.column.columnDef.header} context={header.getContext()} />
+						</Table.Head>
+					{/each}
+				</Table.Row>
+			{/each}
+		</Table.Header>
+		<Table.Body>
+			{#each table.getRowModel().rows as row}
+				<Table.Row>
+					{#each row.getVisibleCells() as cell}
+						<Table.Cell>
+							<FlexRender content={cell.column.columnDef.cell} context={cell.getContext()} />
+						</Table.Cell>
+					{/each}
+				</Table.Row>
+			{/each}
+		</Table.Body>
+	</Table.Root>
 </div>
 ```
 
@@ -176,19 +168,19 @@ export const columns: ColumnDef<Payment>[] = [
 ```svelte
 <!-- data-table-actions.svelte -->
 <script>
-  import { DropdownMenu } from "$lib/components/ui/dropdown-menu";
-  import { EllipsisIcon } from "@lucide/svelte/icons";
+	import { DropdownMenu } from '$lib/components/ui/dropdown-menu';
+	import { EllipsisIcon } from '@lucide/svelte/icons';
 </script>
 
 <DropdownMenu.Root>
-  <DropdownMenu.Trigger>
-    <button class="relative size-8 p-0">
-      <EllipsisIcon />
-    </button>
-  </DropdownMenu.Trigger>
-  <DropdownMenu.Content>
-    <DropdownMenu.Item>View Details</DropdownMenu.Item>
-  </DropdownMenu.Content>
+	<DropdownMenu.Trigger>
+		<button class="relative size-8 p-0">
+			<EllipsisIcon />
+		</button>
+	</DropdownMenu.Trigger>
+	<DropdownMenu.Content>
+		<DropdownMenu.Item>View Details</DropdownMenu.Item>
+	</DropdownMenu.Content>
 </DropdownMenu.Root>
 ```
 
@@ -228,11 +220,9 @@ Add to columns:
 
 <!-- Pagination Controls -->
 <Button on:click={() => table.previousPage()} disabled={!table.getCanPreviousPage()}>
-  Previous
+	Previous
 </Button>
-<Button on:click={() => table.nextPage()} disabled={!table.getCanNextPage()}>
-  Next
-</Button>
+<Button on:click={() => table.nextPage()} disabled={!table.getCanNextPage()}>Next</Button>
 ```
 
 ---
@@ -244,13 +234,13 @@ Add to columns:
 ```svelte
 <!-- data-table-email-button.svelte -->
 <script>
-  import { Button } from "$lib/components/ui/button";
-  import { ArrowUpDownIcon } from "@lucide/svelte/icons";
+	import { Button } from '$lib/components/ui/button';
+	import { ArrowUpDownIcon } from '@lucide/svelte/icons';
 </script>
 
 <Button on:click={column.getToggleSortingHandler()}>
-  Email
-  <ArrowUpDownIcon class="ml-2" />
+	Email
+	<ArrowUpDownIcon class="ml-2" />
 </Button>
 ```
 
@@ -276,16 +266,16 @@ Add a column visibility toggle:
 
 ```svelte
 <DropdownMenu.Root>
-  <DropdownMenu.Content>
-    {#each table.getAllColumns().filter(col => col.getCanHide()) as column}
-      <DropdownMenu.CheckboxItem
-        bind:checked={column.getIsVisible()}
-        on:change={() => column.toggleVisibility()}
-      >
-        {column.id}
-      </DropdownMenu.CheckboxItem>
-    {/each}
-  </DropdownMenu.Content>
+	<DropdownMenu.Content>
+		{#each table.getAllColumns().filter((col) => col.getCanHide()) as column}
+			<DropdownMenu.CheckboxItem
+				bind:checked={column.getIsVisible()}
+				on:change={() => column.toggleVisibility()}
+			>
+				{column.id}
+			</DropdownMenu.CheckboxItem>
+		{/each}
+	</DropdownMenu.Content>
 </DropdownMenu.Root>
 ```
 
@@ -320,15 +310,10 @@ Add selection column:
 ```svelte
 <!-- data-table-checkbox.svelte -->
 <script>
-  import { Checkbox } from "$lib/components/ui/checkbox";
+	import { Checkbox } from '$lib/components/ui/checkbox';
 </script>
 
-<Checkbox
-  {checked}
-  {indeterminate}
-  on:checkedChange={onCheckedChange}
-  aria-label="Select row"
-/>
+<Checkbox {checked} {indeterminate} on:checkedChange={onCheckedChange} aria-label="Select row" />
 ```
 
 ---
@@ -352,8 +337,8 @@ routes
 
 ```svelte
 <script>
-  // Full implementation with all features
-  // (See code in original example for complete implementation)
+	// Full implementation with all features
+	// (See code in original example for complete implementation)
 </script>
 ```
 

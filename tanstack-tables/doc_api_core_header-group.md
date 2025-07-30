@@ -1,6 +1,4 @@
-
-
-```markdown
+````markdown
 # Header Group API
 
 These are core options and API properties for all header groups. More options and API properties may be available for other table features.
@@ -8,6 +6,7 @@ These are core options and API properties for all header groups. More options an
 ---
 
 ## On this page
+
 - [Header Group API](#header-group-api)
   - [id](#id)
   - [depth](#depth)
@@ -22,25 +21,32 @@ All header group objects have the following properties:
 ---
 
 ### id
+
 ```tsx
-id: string
+id: string;
 ```
+````
+
 The unique identifier for the header group.
 
 ---
 
 ### depth
+
 ```tsx
-depth: number
+depth: number;
 ```
+
 The depth of the header group, zero-indexed based.
 
 ---
 
 ### headers
+
 ```tsx
-type headers = Header<TData>[]
+type headers = Header<TData>[];
 ```
+
 An array of `Header` objects that belong to this header group.
 
 ---
@@ -50,6 +56,7 @@ For more information, visit the [GitHub repository](https://github.com/tanstack/
 ---
 
 **Note:** This documentation is part of the TanStack Table v8 framework for Svelte. For version-specific details, refer to the [version selector](#) in the documentation menu.
+
 ```
 
 ### Key Notes:

@@ -1,5 +1,3 @@
-
-
 # Column Visibility Guide
 
 The column visibility feature allows table columns to be hidden or shown dynamically. In v8, this feature uses a dedicated `columnVisibility` state and APIs for managing visibility.
@@ -14,16 +12,16 @@ The `columnVisibility` state is a map of column IDs to boolean values. A column 
 
 ```jsx
 const [columnVisibility, setColumnVisibility] = useState({
-  columnId1: true,
-  columnId2: false, // Hidden by default
-  columnId3: true,
+	columnId1: true,
+	columnId2: false, // Hidden by default
+	columnId3: true
 });
 
 const table = useReactTable({
-  state: {
-    columnVisibility,
-  },
-  onColumnVisibilityChange: setColumnVisibility,
+	state: {
+		columnVisibility
+	},
+	onColumnVisibilityChange: setColumnVisibility
 });
 ```
 
@@ -31,12 +29,12 @@ const table = useReactTable({
 
 ```jsx
 const table = useReactTable({
-  initialState: {
-    columnVisibility: {
-      columnId1: true,
-      columnId2: false,
-    },
-  },
+	initialState: {
+		columnVisibility: {
+			columnId1: true,
+			columnId2: false
+		}
+	}
 });
 ```
 
@@ -50,15 +48,15 @@ Prevent columns from being hidden by setting `enableHiding: false` in the column
 
 ```jsx
 const columns = [
-  {
-    header: "ID",
-    accessorKey: "id",
-    enableHiding: false, // Cannot be hidden
-  },
-  {
-    header: "Name",
-    accessor: "name", // Can be hidden
-  },
+	{
+		header: 'ID',
+		accessorKey: 'id',
+		enableHiding: false // Cannot be hidden
+	},
+	{
+		header: 'Name',
+		accessor: 'name' // Can be hidden
+	}
 ];
 ```
 
@@ -76,17 +74,19 @@ const columns = [
 ### Example: Toggle UI
 
 ```jsx
-{table.getAllColumns().map((column) => (
-  <label key={column.id}>
-    <input
-      checked={column.getIsVisible()}
-      disabled={!column.getCanHide()}
-      onChange={column.getToggleVisibilityHandler()}
-      type="checkbox"
-    />
-    {column.columnDef.header}
-  </label>
-))}
+{
+	table.getAllColumns().map((column) => (
+		<label key={column.id}>
+			<input
+				checked={column.getIsVisible()}
+				disabled={!column.getCanHide()}
+				onChange={column.getToggleVisibilityHandler()}
+				type="checkbox"
+			/>
+			{column.columnDef.header}
+		</label>
+	));
+}
 ```
 
 ---
@@ -100,23 +100,23 @@ When rendering headers, rows, or cells, use **visibility-aware APIs** to exclude
 
 ```jsx
 <table>
-  <thead>
-    <tr>
-      {table.getVisibleLeafColumns().map((column) => (
-        <th key={column.id}>{column.header}</th>
-      ))}
-    </tr>
-  </thead>
-  <tbody>
-    {table.getRowModel().rows.map((row) => (
-      <tr key={row.id}>
-        {row.getVisibleCells().map((cell) => (
-          <td key={cell.id}>{cell.getValue()}</td>
-        ))}
-      </tr>
-    ))}
-    )}
-  </tbody>
+	<thead>
+		<tr>
+			{table.getVisibleLeafColumns().map((column) => (
+				<th key={column.id}>{column.header}</th>
+			))}
+		</tr>
+	</thead>
+	<tbody>
+		{table.getRowModel().rows.map((row) => (
+			<tr key={row.id}>
+				{row.getVisibleCells().map((cell) => (
+					<td key={cell.id}>{cell.getValue()}</td>
+				))}
+			</tr>
+		))}
+		)}
+	</tbody>
 </table>
 ```
 
