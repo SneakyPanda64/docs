@@ -1,161 +1,269 @@
 [
     {
-        "file": ".github/docs/superform/doc_pagination.md"
+        "file": ".github/docs/superform/doc_cli.md"
     },
     {
-        "file": ".github/docs/superform/doc_combobox.md"
+        "file": ".github/docs/superform/doc_components_tabs.md"
     },
     {
-        "file": ".github/docs/superform/doc_dialog.md"
+        "file": ".github/docs/superform/doc#distribution.md"
     },
     {
-        "file": ".github/docs/superform/doc_data-table.md"
+        "file": ".github/docs/superform/doc_components_tooltip.md"
     },
     {
-        "file": ".github/docs/superform/doc_table.md"
+        "file": ".github/docs/superform/doc_components_checkbox.md"
     },
     {
-        "file": ".github/docs/superform/doc_carousel.md"
+        "file": ".github/docs/superform/doc7.md"
     },
     {
-        "file": ".github/docs/superform/doc_tabs.md"
+        "file": ".github/docs/superform/doc_migration_tailwind-v4.md"
     },
     {
-        "file": ".github/docs/superform/doc_navigation-menu.md"
+        "file": ".github/docs/superform/doc_registry.md"
     },
     {
-        "file": ".github/docs/superform/doc_hover-card.md"
+        "file": ".github/docs/superform/doc_registry_faq.md"
     },
     {
-        "file": ".github/docs/superform/doc_breadcrumb.md"
+        "file": ".github/docs/superform/doc_legacy.md"
     },
     {
-        "file": ".github/docs/superform/doc_switch.md"
+        "file": ".github/docs/superform/doc#ai-ready.md"
     },
     {
-        "file": ".github/docs/superform/doc_alert-dialog.md"
+        "file": ".github/docs/superform/doc_installation.md"
     },
     {
-        "file": ".github/docs/superform/doc_input-otp.md"
+        "file": ".github/docs/superform/doc_components_sonner.md"
     },
     {
-        "file": ".github/docs/superform/doc_progress.md"
+        "file": ".github/docs/superform/doc_components_pagination.md"
     },
     {
-        "file": ".github/docs/superform/doc_sheet.md"
+        "file": ".github/docs/superform/doc_changelog.md"
     },
     {
-        "file": ".github/docs/superform/doc_textarea.md"
+        "file": ".github/docs/superform/doc_components_collapsible.md"
     },
     {
-        "file": ".github/docs/superform/doc_aspect-ratio.md"
+        "file": ".github/docs/superform/doc_components_context-menu.md"
     },
     {
-        "file": ".github/docs/superform/doc_skeleton.md"
+        "file": ".github/docs/superform/doc_components_alert.md"
     },
     {
-        "file": ".github/docs/superform/doc_input.md"
+        "file": ".github/docs/superform/doc_components_sheet.md"
     },
     {
-        "file": ".github/docs/superform/doc_accordion.md"
+        "file": ".github/docs/superform/docrtisers_topics_data-science_?ref=ea-image.md"
     },
     {
-        "file": ".github/docs/superform/doc_drawer.md"
+        "file": ".github/docs/superform/doc_components_popover.md"
     },
     {
-        "file": ".github/docs/superform/doc_radio-group.md"
+        "file": ".github/docs/superform/doc_components_textarea.md"
     },
     {
-        "file": ".github/docs/superform/doc_chart.md"
+        "file": ".github/docs/superform/doc_components_accordion.md"
     },
     {
-        "file": ".github/docs/superform/doc_select.md"
+        "file": ".github/docs/superform/doc_installation_sveltekit.md"
     },
     {
-        "file": ".github/docs/superform/doc_button.md"
+        "file": ".github/docs/superform/doc_components_toggle.md"
     },
     {
-        "file": ".github/docs/superform/doc_slider.md"
+        "file": ".github/docs/superform/doc_components_dropdown-menu.md"
     },
     {
-        "file": ".github/docs/superform/doc_command.md"
+        "file": ".github/docs/superform/doc_components_data-table.md"
     },
     {
-        "file": ".github/docs/superform/doc_sonner.md"
+        "file": ".github/docs/superform/doc_components_resizable.md"
     },
     {
-        "file": ".github/docs/superform/doc-json.md"
+        "file": ".github/docs/superform/doc_dark-mode_svelte.md"
     },
     {
-        "file": ".github/docs/superform/doc_calendar.md"
+        "file": ".github/docs/superform/doc_migration_svelte-5.md"
     },
     {
-        "file": ".github/docs/superform/doc_form.md"
+        "file": ".github/docs/superform/doc_registry_examples.md"
     },
     {
-        "file": ".github/docs/superform/doc_alert.md"
+        "file": ".github/docs/superform/doc_installation_astro.md"
     },
     {
-        "file": ".github/docs/superform/doc_avatar.md"
+        "file": ".github/docs/superform/doc_dark-mode.md"
     },
     {
-        "file": ".github/docs/superform/doc_card.md"
+        "file": ".github/docs/superform/doc_registry_registry-item-json.md"
     },
     {
-        "file": ".github/docs/superform/doc_checkbox.md"
+        "file": ".github/docs/superform/doc_components_hover-card.md"
     },
     {
-        "file": ".github/docs/superform/doc_popover.md"
+        "file": ".github/docs/superform/doc_components_table.md"
     },
     {
-        "file": ".github/docs/superform/doc_typography.md"
+        "file": ".github/docs/superform/doc_components_input.md"
     },
     {
-        "file": ".github/docs/superform/doc_date-picker.md"
+        "file": ".github/docs/superform/docrs.md"
     },
     {
-        "file": ".github/docs/superform/doc_separator.md"
+        "file": ".github/docs/superform/doc_components_avatar.md"
     },
     {
-        "file": ".github/docs/superform/doc_scroll-area.md"
+        "file": ".github/docs/superform/doc_components_command.md"
     },
     {
-        "file": ".github/docs/superform/doc_toggle.md"
+        "file": ".github/docs/superform/doc_components_alert-dialog.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components_form.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components_carousel.md"
+    },
+    {
+        "file": ".github/docs/superform/dochadcn-svelte.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components_combobox.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components_menubar.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components_drawer.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_installation_manual.md"
+    },
+    {
+        "file": ".github/docs/superform/docks.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components_badge.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components_input-otp.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_installation_vite.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components_card.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components_switch.md"
+    },
+    {
+        "file": ".github/docs/superform/docts_area.md"
+    },
+    {
+        "file": ".github/docs/superform/doces.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components_calendar.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components_progress.md"
+    },
+    {
+        "file": ".github/docs/superform/docroxy_click_9050_0198c1bb-eb65-7933-8d72-efe276190235_.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components_breadcrumb.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components_dialog.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components-json.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components_date-picker.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_dark-mode_astro.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components_scroll-area.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components_toggle-group.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components_aspect-ratio.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components_skeleton.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components_separator.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components_sidebar.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_theming.md"
+    },
+    {
+        "file": ".github/docs/superform/doc#composition.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components_typography.md"
+    },
+    {
+        "file": ".github/docs/superform/doc#beautiful-defaults.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_registry_getting-started.md"
+    },
+    {
+        "file": ".github/docs/superform/doc_components_radio-group.md"
     },
     {
         "file": ".github/docs/superform/doc.md"
     },
     {
-        "file": ".github/docs/superform/doc_label.md"
+        "file": ".github/docs/superform/doc_components_navigation-menu.md"
     },
     {
-        "file": ".github/docs/superform/doc_resizable.md"
+        "file": ".github/docs/superform/doc_figma.md"
     },
     {
-        "file": ".github/docs/superform/doc_sidebar.md"
+        "file": ".github/docs/superform/doc_registry_registry-json.md"
     },
     {
-        "file": ".github/docs/superform/doc_context-menu.md"
+        "file": ".github/docs/superform/doc_components_chart.md"
     },
     {
-        "file": ".github/docs/superform/doc_badge.md"
+        "file": ".github/docs/superform/doc_components_slider.md"
     },
     {
-        "file": ".github/docs/superform/doc_tooltip.md"
+        "file": ".github/docs/superform/doc_components_button.md"
     },
     {
-        "file": ".github/docs/superform/doc_toggle-group.md"
+        "file": ".github/docs/superform/doc_components_label.md"
     },
     {
-        "file": ".github/docs/superform/doc_collapsible.md"
+        "file": ".github/docs/superform/doc_javascript.md"
     },
     {
-        "file": ".github/docs/superform/doc_dropdown-menu.md"
+        "file": ".github/docs/superform/doc_components_select.md"
     },
     {
-        "file": ".github/docs/superform/doc_range-calendar.md"
+        "file": ".github/docs/superform/doc#open-code.md"
     },
     {
-        "file": ".github/docs/superform/doc_menubar.md"
+        "file": ".github/docs/superform/doc_components_range-calendar.md"
     }
 ]
