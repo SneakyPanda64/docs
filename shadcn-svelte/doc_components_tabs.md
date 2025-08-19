@@ -1,3 +1,4 @@
+<<<<<<< HEAD:shadcn-svelte/doc_components_tabs.md
 # shadcn‑svelte – Tabs Component
 
 The **Tabs** component lets you create a set of layered sections of content (tab panels) that are displayed one at a time.  
@@ -5,6 +6,9 @@ It is fully accessible, keyboard‑friendly, and styled with Tailwind CSS.
 
 > **Note**  
 > This component is part of the shadcn‑svelte UI library, a port of the original shadcn‑ui components to Svelte.
+=======
+# Tabs Component
+>>>>>>> a5258c60f28f0645e29f42636ea5ac1e19b59010:shadcn-svelte/doc_tabs.md
 
 ---
 
@@ -33,9 +37,13 @@ It is fully accessible, keyboard‑friendly, and styled with Tailwind CSS.
 pnpm dlx shadcn-svelte@latest add tabs
 ```
 
+<<<<<<< HEAD:shadcn-svelte/doc_components_tabs.md
 > Replace `pnpm` with `npm`, `yarn`, or `bun` if you prefer.
 
 ### Manual
+=======
+### Manual Installation
+>>>>>>> a5258c60f28f0645e29f42636ea5ac1e19b59010:shadcn-svelte/doc_tabs.md
 
 ```bash
 # Using npm
@@ -55,10 +63,11 @@ npm install shadcn-svelte
 
 ```svelte
 <script lang="ts">
-  import * as Tabs from "$lib/components/ui/tabs/index.js";
+	import * as Tabs from '$lib/components/ui/tabs/index.js';
 </script>
 
 <Tabs.Root value="account" class="w-[400px]">
+<<<<<<< HEAD:shadcn-svelte/doc_components_tabs.md
   <Tabs.List>
     <Tabs.Trigger value="account">Account</Tabs.Trigger>
     <Tabs.Trigger value="password">Password</Tabs.Trigger>
@@ -71,6 +80,14 @@ npm install shadcn-svelte
   <Tabs.Content value="password">
     Change your password here.
   </Tabs.Content>
+=======
+	<Tabs.List>
+		<Tabs.Trigger value="account">Account</Tabs.Trigger>
+		<Tabs.Trigger value="password">Password</Tabs.Trigger>
+	</Tabs.List>
+	<Tabs.Content value="account">Make changes to your account here.</Tabs.Content>
+	<Tabs.Content value="password">Change your password here.</Tabs.Content>
+>>>>>>> a5258c60f28f0645e29f42636ea5ac1e19b59010:shadcn-svelte/doc_tabs.md
 </Tabs.Root>
 ```
 
@@ -78,14 +95,15 @@ npm install shadcn-svelte
 
 ```svelte
 <script lang="ts">
-  import * as Tabs from "$lib/components/ui/tabs/index.js";
-  import * as Card from "$lib/components/ui/card/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
-  import { Input } from "$lib/components/ui/input/index.js";
-  import { Label } from "$lib/components/ui/label/index.js";
+	import * as Tabs from '$lib/components/ui/tabs/index.js';
+	import * as Card from '$lib/components/ui/card/index.js';
+	import { Button } from '$lib/components/ui/button/index.js';
+	import { Input } from '$lib/components/ui/input/index.js';
+	import { Label } from '$lib/components/ui/label/index.js';
 </script>
 
 <div class="flex w-full max-w-sm flex-col gap-6">
+<<<<<<< HEAD:shadcn-svelte/doc_components_tabs.md
   <Tabs.Root value="account">
     <Tabs.List>
       <Tabs.Trigger value="account">Account</Tabs.Trigger>
@@ -146,6 +164,60 @@ npm install shadcn-svelte
       </Card.Root>
     </Tabs.Content>
   </Tabs.Root>
+=======
+	<Tabs.Root value="account">
+		<Tabs.List>
+			<Tabs.Trigger value="account">Account</Tabs.Trigger>
+			<Tabs.Trigger value="password">Password</Tabs.Trigger>
+		</Tabs.List>
+		<Tabs.Content value="account">
+			<Card.Root>
+				<Card.Header>
+					<Card.Title>Account</Card.Title>
+					<Card.Description>
+						Make changes to your account here. Click save when you're done.
+					</Card.Description>
+				</Card.Header>
+				<Card.Content class="grid gap-6">
+					<div class="grid gap-3">
+						<Label for="tabs-demo-name">Name</Label>
+						<Input id="tabs-demo-name" value="Pedro Duarte" />
+					</div>
+					<div class="grid gap-3">
+						<Label for="tabs-demo-username">Username</Label>
+						<Input id="tabs-demo-username" value="@peduarte" />
+					</div>
+				</Card.Content>
+				<Card.Footer>
+					<Button>Save changes</Button>
+				</Card.Footer>
+			</Card.Root>
+		</Tabs.Content>
+		<Tabs.Content value="password">
+			<Card.Root>
+				<Card.Header>
+					<Card.Title>Password</Card.Title>
+					<Card.Description>
+						Change your password here. After saving, you'll be logged out.
+					</Card.Description>
+				</Card.Header>
+				<Card.Content class="grid gap-6">
+					<div class="grid gap-3">
+						<Label for="tabs-demo-current">Current password</Label>
+						<Input id="tabs-demo-current" type="password" />
+					</div>
+					<div class="grid gap-3">
+						<Label for="tabs-demo-new">New password</Label>
+						<Input id="tabs-demo-new" type="password" />
+					</div>
+				</Card.Content>
+				<Card.Footer>
+					<Button>Save password</Button>
+				</Card.Footer>
+			</Card.Root>
+		</Tabs.Content>
+	</Tabs.Root>
+>>>>>>> a5258c60f28f0645e29f42636ea5ac1e19b59010:shadcn-svelte/doc_tabs.md
 </div>
 ```
 
@@ -162,6 +234,7 @@ The container that holds the entire tab system.
 | `value` | `string` | `""` | The currently selected tab value. |
 | `class` | `string` | – | Tailwind classes for styling. |
 
+<<<<<<< HEAD:shadcn-svelte/doc_components_tabs.md
 ### `Tabs.List`
 
 Container for the tab triggers.
@@ -187,6 +260,12 @@ The panel that displays content for a selected tab.
 |------|------|---------|-------------|
 | `value` | `string` | – | The value that matches the corresponding trigger. |
 | `class` | `string` | – | Tailwind classes for styling. |
+=======
+| Property        | Type                      | Description                     |
+| --------------- | ------------------------- | ------------------------------- |
+| `value`         | `string`                  | The currently active tab value. |
+| `onValueChange` | `(value: string) => void` | Callback for value changes.     |
+>>>>>>> a5258c60f28f0645e29f42636ea5ac1e19b59010:shadcn-svelte/doc_tabs.md
 
 ---
 
@@ -214,4 +293,13 @@ Please read the [contributing guide](https://github.com/shadcn-svelte/shadcn-sve
 
 MIT © shadcn-svelte
 
+<<<<<<< HEAD:shadcn-svelte/doc_components_tabs.md
 ---
+=======
+---
+
+### Notes
+
+- Ensure all dependencies like `Card`, `Button`, `Input`, and `Label` are imported correctly if using the form example.
+- The `value` prop determines the active tab. Use `onValueChange` to handle tab selection changes programmatically.
+>>>>>>> a5258c60f28f0645e29f42636ea5ac1e19b59010:shadcn-svelte/doc_tabs.md

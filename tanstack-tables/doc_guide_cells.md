@@ -1,6 +1,4 @@
-
-
-```markdown
+````markdown
 # Cells Guide
 
 This quick guide explains how to retrieve and interact with cell objects in TanStack Table.
@@ -13,9 +11,10 @@ Cells are derived from rows. Use row instance APIs to retrieve cells:
 
 ```javascript
 // Common methods
-row.getAllCells() // All cells, including hidden columns
-row.getVisibleCells() // Only visible cells (if using column visibility)
+row.getAllCells(); // All cells, including hidden columns
+row.getVisibleCells(); // Only visible cells (if using column visibility)
 ```
+````
 
 ---
 
@@ -35,7 +34,9 @@ Cell IDs are formatted as `rowId_columnId`. During grouping/aggregation, additio
 
 ```javascript
 // Basic ID format
-{ id: `${row.id}_${column.id}` }
+{
+	id: `${row.id}_${column.id}`;
+}
 ```
 
 ---
@@ -45,8 +46,8 @@ Cell IDs are formatted as `rowId_columnId`. During grouping/aggregation, additio
 Every cell has references to its parent row and column:
 
 ```javascript
-cell.row // Parent row object
-cell.column // Parent column definition
+cell.row; // Parent row object
+cell.column; // Parent column definition
 ```
 
 ---
@@ -57,8 +58,8 @@ Use these methods to retrieve values:
 
 ```javascript
 // Recommended methods
-const firstName = cell.getValue('firstName') // Raw value
-const lastName = cell.renderValue('lastName') // Rendered value with fallback
+const firstName = cell.getValue('firstName'); // Raw value
+const lastName = cell.renderValue('lastName'); // Rendered value with fallback
 
 // Note: These are shortcuts for row.getValue(columnId) and row.renderValue(columnId)
 ```
@@ -71,8 +72,8 @@ Access full row data via the parent row:
 
 ```javascript
 // Access original row data
-const originalData = cell.row.original
-const firstName = originalData.firstName
+const originalData = cell.row.original;
+const firstName = originalData.firstName;
 ```
 
 ---
@@ -102,30 +103,31 @@ import { flexRender } from '@tanstack/svelte-table' // Svelte adapter example
 ---
 
 ## On this page
-- [API](#api)  
-- [Cells Guide](#cells-guide)  
-- [Where to Get Cells From](#where-to-get-cells-from)  
-- [Cell Objects](#cell-objects)  
-- [Cell IDs](#cell-ids)  
-- [Cell Parent Objects](#cell-parent-objects)  
-- [Access Cell Values](#access-cell-values)  
-- [Access Other Row Data from Any Cell](#access-other-row-data-from-any-cell)  
-- [More Cell APIs](#more-cell-apis)  
-- [Cell Rendering](#cell-rendering)  
-- [Rows](/docs/core/rows)  
-- [Header Groups](/docs/core/header-groups)  
+
+- [API](#api)
+- [Cells Guide](#cells-guide)
+- [Where to Get Cells From](#where-to-get-cells-from)
+- [Cell Objects](#cell-objects)
+- [Cell IDs](#cell-ids)
+- [Cell Parent Objects](#cell-parent-objects)
+- [Access Cell Values](#access-cell-values)
+- [Access Other Row Data from Any Cell](#access-other-row-data-from-any-cell)
+- [More Cell APIs](#more-cell-apis)
+- [Cell Rendering](#cell-rendering)
+- [Rows](/docs/core/rows)
+- [Header Groups](/docs/core/header-groups)
 
 ---
 
 ### API Reference
 
-| Method/Property       | Description                                                                 |
-|-----------------------|-----------------------------------------------------------------------------|
-| `cell.getValue()`     | Retrieves raw cell value via accessor function                            |
-| `cell.renderValue()`  | Returns rendered value with fallback for undefined values                  |
-| `cell.row`            | Reference to the parent row                                                 |
-| `cell.column`         | Reference to the parent column                                              |
-| `cell.id`             | Unique cell identifier string                                               |
+| Method/Property      | Description                                               |
+| -------------------- | --------------------------------------------------------- |
+| `cell.getValue()`    | Retrieves raw cell value via accessor function            |
+| `cell.renderValue()` | Returns rendered value with fallback for undefined values |
+| `cell.row`           | Reference to the parent row                               |
+| `cell.column`        | Reference to the parent column                            |
+| `cell.id`            | Unique cell identifier string                             |
 
 ---
 
@@ -137,6 +139,8 @@ import { flexRender } from '@tanstack/svelte-table' // Svelte adapter example
 - Parent row/column references are always accessible
 
 For full API details, see the [Cell API documentation](/docs/core/cell-api).
-``` 
+
+```
 
 This documentation format maintains all original examples while organizing them into a clear structure with proper markdown formatting, code blocks, and notes. The privacy policy text and unrelated UI elements have been omitted as per instructions.
+```

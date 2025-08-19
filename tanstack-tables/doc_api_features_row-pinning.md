@@ -1,89 +1,101 @@
-
-
-```markdown
+````markdown
 # Row Pinning Guide
 
 ## Can-Pin
+
 The ability to pin a row is determined by the following conditions:
+
 - `options.enableRowPinning` resolves to `true`.
 - `options.enablePinning` is not explicitly set to `false`.
 
 ---
 
 ## State
+
 ### Types
+
 ```typescript
 export type RowPinningPosition = false | 'top' | 'bottom';
 
 export type RowPinningState = {
-  top?: string[];
-  bottom?: string[];
+	top?: string[];
+	bottom?: string[];
 };
 
 export type RowPinningRowState = {
-  rowPinning: RowPinningState;
+	rowPinning: RowPinningState;
 };
 ```
+````
 
 ---
 
 ## Table Options
 
 ### enableRowPinning
+
 Enables/disables row pinning for all rows in the table.
 
-**Type**:  
+**Type**:
+
 ```typescript
 enableRowPinning?: boolean | ((row: Row<TData>) => boolean);
 ```
 
-**Example**:  
+**Example**:
+
 ```tsx
 const table = useTable({
-  columns,
-  data,
-  enableRowPinning: true,
+	columns,
+	data,
+	enableRowPinning: true
 });
 ```
 
 ---
 
 ### keepPinnedRows
+
 Controls whether pinned rows remain visible when filtered/paginated.
 
-**Type**:  
+**Type**:
+
 ```typescript
 keepPinnedRows?: boolean;
 ```
 
 **Default**: `true`  
-**Example**:  
+**Example**:
+
 ```tsx
 const table = useTable({
-  columns,
-  data,
-  keepPinnedRows: false,
+	columns,
+	data,
+	keepPinnedRows: false
 });
 ```
 
 ---
 
 ### onRowPinningChange
+
 Callback for when row pinning state changes.
 
-**Type**:  
+**Type**:
+
 ```typescript
 onRowPinningChange?: OnChangeFn<RowPinningState>;
 ```
 
-**Example**:  
+**Example**:
+
 ```tsx
 const table = useTable({
-  columns,
-  data,
-  onRowPinningChange: (updater) => {
-    // Handle state updates
-  },
+	columns,
+	data,
+	onRowPinningChange: (updater) => {
+		// Handle state updates
+	}
 });
 ```
 
@@ -92,14 +104,17 @@ const table = useTable({
 ## Table API
 
 ### setRowPinning
+
 Updates the row pinning state.
 
-**Type**:  
+**Type**:
+
 ```typescript
 setRowPinning: (updater: Updater<RowPinningState>) => void;
 ```
 
-**Example**:  
+**Example**:
+
 ```tsx
 table.setRowPinning((prev) => ({ ...prev, top: ['row1'] }));
 ```
@@ -107,14 +122,17 @@ table.setRowPinning((prev) => ({ ...prev, top: ['row1'] }));
 ---
 
 ### resetRowPinning
+
 Resets the row pinning state.
 
-**Type**:  
+**Type**:
+
 ```typescript
 resetRowPinning: (defaultState?: boolean) => void;
 ```
 
-**Example**:  
+**Example**:
+
 ```tsx
 table.resetRowPinning(true); // Resets to empty state
 ```
@@ -122,14 +140,17 @@ table.resetRowPinning(true); // Resets to empty state
 ---
 
 ### getIsSomeRowsPinned
+
 Checks if any rows are pinned.
 
-**Type**:  
+**Type**:
+
 ```typescript
 getIsSomeRowsPinned: (position?: RowPinningPosition) => boolean;
 ```
 
-**Example**:  
+**Example**:
+
 ```tsx
 const hasPinnedRows = table.getIsSomeRowsPinned('top');
 ```
@@ -137,14 +158,17 @@ const hasPinnedRows = table.getIsSomeRowsPinned('top');
 ---
 
 ### getTopRows
+
 Retrieves all top-pinned rows.
 
-**Type**:  
+**Type**:
+
 ```typescript
-getTopRows: () => Row<TData>[];
+getTopRows: () => Row < TData > [];
 ```
 
-**Example**:  
+**Example**:
+
 ```tsx
 const topRows = table.getTopRows();
 ```
@@ -152,14 +176,17 @@ const topRows = table.getTopRows();
 ---
 
 ### getBottomRows
+
 Retrieves all bottom-pinned rows.
 
-**Type**:  
+**Type**:
+
 ```typescript
-getBottomRows: () => Row<TData>[];
+getBottomRows: () => Row < TData > [];
 ```
 
-**Example**:  
+**Example**:
+
 ```tsx
 const bottomRows = table.getBottomRows();
 ```
@@ -167,14 +194,17 @@ const bottomRows = table.getBottomRows();
 ---
 
 ### getCenterRows
+
 Retrieves non-pinned rows.
 
-**Type**:  
+**Type**:
+
 ```typescript
-getCenterRows: () => Row<TData>[];
+getCenterRows: () => Row < TData > [];
 ```
 
-**Example**:  
+**Example**:
+
 ```tsx
 const centerRows = table.getCenterRows();
 ```
@@ -184,14 +214,17 @@ const centerRows = table.getCenterRows();
 ## Row API
 
 ### pin
+
 Pins/unpins a row to a specified position.
 
-**Type**:  
+**Type**:
+
 ```typescript
 pin: (position: RowPinningPosition) => void;
 ```
 
-**Example**:  
+**Example**:
+
 ```tsx
 row.pin('top'); // Pins the row to the top
 row.pin(false); // Unpins the row
@@ -200,31 +233,37 @@ row.pin(false); // Unpins the row
 ---
 
 ### getCanPin
+
 Checks if a row can be pinned.
 
-**Type**:  
+**Type**:
+
 ```typescript
 getCanPin: () => boolean;
 ```
 
-**Example**:  
+**Example**:
+
 ```tsx
 if (row.getCanPin()) {
-  // Allow pinning
+	// Allow pinning
 }
 ```
 
 ---
 
 ### getIsPinned
+
 Gets the current pinned position of a row.
 
-**Type**:  
+**Type**:
+
 ```typescript
 getIsPinned: () => RowPinningPosition;
 ```
 
-**Example**:  
+**Example**:
+
 ```tsx
 const position = row.getIsPinned(); // Returns 'top', 'bottom', or false
 ```
@@ -232,14 +271,17 @@ const position = row.getIsPinned(); // Returns 'top', 'bottom', or false
 ---
 
 ### getPinnedIndex
+
 Gets the numeric index of a pinned row within its group.
 
-**Type**:  
+**Type**:
+
 ```typescript
 getPinnedIndex: () => number;
 ```
 
-**Example**:  
+**Example**:
+
 ```tsx
 const index = row.getPinnedIndex(); // Returns 0-based index in pinned group
 ```
@@ -247,23 +289,27 @@ const index = row.getPinnedIndex(); // Returns 0-based index in pinned group
 ---
 
 ## Usage Example
+
 ```tsx
 // Example of pinning a row to the top
 const handlePinRow = (row) => {
-  row.pin('top');
+	row.pin('top');
 };
 
 // Example of resetting pinning state
 const resetPinning = () => {
-  table.resetRowPinning(true);
+	table.resetRowPinning(true);
 };
 ```
 
 ---
 
 ## Notes
+
 - Pinned rows are persisted in the `IABGPP_HDR_GppString` cookie for 13 months.
 - To override default state management, provide `onRowPinningChange` and manage `state.rowPinning` externally.
-``` 
+
+```
 
 This documentation structure maintains all original examples and technical details while organizing them into a clear, navigable format. Irrelevant sections (privacy policy, footer links, etc.) have been omitted as requested.
+```

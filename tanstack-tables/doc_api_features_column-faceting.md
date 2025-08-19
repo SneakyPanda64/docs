@@ -1,6 +1,4 @@
-
-
-```markdown
+````markdown
 # Column Faceting APIs
 
 ## Column API
@@ -10,6 +8,7 @@
 ```tsx
 type getFacetedRowModel = () => RowModel<TData>;
 ```
+````
 
 ⚠️ Requires that you pass a valid `getFacetedRowModel` function to `options.facetedRowModel`. A default implementation is provided via the exported `getFacetedRowModel` function.
 
@@ -75,11 +74,18 @@ Returns the faceted row model for a given `columnId`.
 
 **Note**:  
 Ensure you import the default implementations if not providing custom functions:
+
 ```tsx
-import { getFacetedRowModel, getFacetedUniqueValues, getFacetedMinMaxValues } from '@tanstack/table-core';
+import {
+	getFacetedRowModel,
+	getFacetedUniqueValues,
+	getFacetedMinMaxValues
+} from '@tanstack/table-core';
 ```
 
 For usage examples, see the [Column Faceting Examples](#examples) section.
-``` 
+
+```
 
 This structure maintains all examples and requirements while organizing the documentation into clear sections. The privacy policy text was omitted as it's unrelated to the API documentation, focusing instead on the technical details and examples provided.
+```

@@ -1,9 +1,8 @@
-
-
-```markdown
+````markdown
 # TanStack Table Virtualization Guide
 
 ## Examples
+
 - **Virtualized Columns**: Demonstrates column virtualization for handling large datasets horizontally.
 - **Virtualized Rows (Dynamic Row Height)**: Shows row virtualization with rows of varying heights.
 - **Virtualized Rows (Fixed Row Height)**: Example of row virtualization with consistent row heights for optimized performance.
@@ -33,19 +32,20 @@ TanStack Table does not include built-in virtualization features, but it can be 
 ```javascript
 // Pseudocode for row virtualization
 const virtualizer = useVirtual({
-  size: table.rows.length,
-  parentRef: tableInstance.getScrollRef(),
+	size: table.rows.length,
+	parentRef: tableInstance.getScrollRef()
 });
 
 return (
-  <div ref={virtualizer.measureRef}>
-    <VirtualList
-      items={table.rows.slice(virtualizer.startIndex, virtualizer.endIndex)}
-      // Render rows using TanStack Table's row components
-    />
-  </div>
+	<div ref={virtualizer.measureRef}>
+		<VirtualList
+			items={table.rows.slice(virtualizer.startIndex, virtualizer.endIndex)}
+			// Render rows using TanStack Table's row components
+		/>
+	</div>
 );
 ```
+````
 
 ---
 
@@ -66,6 +66,7 @@ Ensure sorting logic is applied to the full dataset before virtualization to mai
 ## Custom Features
 
 For advanced use cases, create custom features to handle:
+
 - **Dynamic Row Heights**: Calculate row heights and update the virtualizer's `itemSize` prop.
 - **Scroll Sync**: Link the virtualizer's scroll position to the Table's state.
 
@@ -77,6 +78,8 @@ For advanced use cases, create custom features to handle:
 - **Documentation**: [TanStack Virtual Documentation](https://tanstack.com/virtual)
 
 > **Note**: Your preferences for virtualization settings are stored in the `IABGPP_HDR_GppString` cookie for 13 months and can be adjusted via the "Privacy" button on this site.
-``` 
+
+```
 
 This documentation retains all original examples, focuses on virtualization strategies, and adheres to the structure of the source material while omitting non-essential UI elements. The privacy notice is preserved as a note at the end to comply with the original text's requirements.
+```

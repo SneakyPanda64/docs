@@ -1,6 +1,4 @@
-
-
-```markdown
+````markdown
 # Row Selection Guide
 
 The row selection feature tracks selected rows and provides utilities to toggle selections. Below are common use cases and implementation details.
@@ -20,6 +18,7 @@ console.log(table.getSelectedRowModel().rows); // All selected rows
 console.log(table.getFilteredSelectedRowModel().rows); // Filtered selected rows
 console.log(table.getGroupedSelectedRowModel().rows); // Grouped selected rows
 ```
+````
 
 **Note:** When using `manualPagination`, `getSelectedRowModel` returns only selected rows on the current page. The row selection state retains IDs even if rows are not visible.
 
@@ -33,9 +32,9 @@ Manage selection state externally using React state:
 const [rowSelection, setRowSelection] = useState<RowSelectionState>({});
 
 const table = useReactTable({
-  // ...
-  onRowSelectionChange: setRowSelection, // Hoist state
-  state: { rowSelection }, // Pass state back
+	// ...
+	onRowSelectionChange: setRowSelection, // Hoist state
+	state: { rowSelection } // Pass state back
 });
 ```
 
@@ -47,8 +46,8 @@ Use a custom row ID for better state management:
 
 ```typescript
 const table = useReactTable({
-  // ...
-  getRowId: row => row.original.id, // Use a database ID
+	// ...
+	getRowId: (row) => row.original.id // Use a database ID
 });
 ```
 
@@ -56,8 +55,8 @@ This produces a selection state like:
 
 ```json
 {
-  "13e79140-...": true,
-  "f3e2a5c0-...": false
+	"13e79140-...": true,
+	"f3e2a5c0-...": false
 }
 ```
 
@@ -69,8 +68,8 @@ Control row selection availability:
 
 ```typescript
 const table = useReactTable({
-  // ...
-  enableRowSelection: row => row.original.age > 18, // Enable for adults only
+	// ...
+	enableRowSelection: (row) => row.original.age > 18 // Enable for adults only
 });
 ```
 
@@ -88,8 +87,8 @@ Restrict to one selected row:
 
 ```typescript
 const table = useReactTable({
-  // ...
-  enableMultiRowSelection: false, // Radio button behavior
+	// ...
+	enableMultiRowSelection: false // Radio button behavior
 });
 ```
 
@@ -101,8 +100,8 @@ Disable automatic sub-row selection:
 
 ```typescript
 const table = useReactTable({
-  // ...
-  enableSubRowSelection: false, // Disable sub-row inheritance
+	// ...
+	enableSubRowSelection: false // Disable sub-row inheritance
 });
 ```
 
@@ -114,24 +113,24 @@ const table = useReactTable({
 
 ```jsx
 const columns = [
-  {
-    id: 'select-col',
-    header: ({ table }) => (
-      <Checkbox
-        checked={table.getIsAllRowsSelected()}
-        indeterminate={table.getIsSomeRowsSelected()}
-        onChange={table.getToggleAllRowsSelectedHandler()}
-      />
-    ),
-    cell: ({ row }) => (
-      <Checkbox
-        checked={row.getIsSelected()}
-        disabled={!row.getCanSelect()}
-        onChange={row.getToggleSelectedHandler()}
-      />
-    ),
-  },
-  // ...
+	{
+		id: 'select-col',
+		header: ({ table }) => (
+			<Checkbox
+				checked={table.getIsAllRowsSelected()}
+				indeterminate={table.getIsSomeRowsSelected()}
+				onChange={table.getToggleAllRowsSelectedHandler()}
+			/>
+		),
+		cell: ({ row }) => (
+			<Checkbox
+				checked={row.getIsSelected()}
+				disabled={!row.getCanSelect()}
+				onChange={row.getToggleSelectedHandler()}
+			/>
+		)
+	}
+	// ...
 ];
 ```
 
@@ -139,17 +138,17 @@ const columns = [
 
 ```jsx
 <tbody>
-  {table.getRowModel().rows.map(row => (
-    <tr
-      key={row.id}
-      className={row.getIsSelected() ? 'selected' : ''}
-      onClick={row.getToggleSelectedHandler()}
-    >
-      {row.getVisibleCells().map(cell => (
-        <td key={cell.id}>{/* ... */}</td>
-      ))}
-    </tr>
-  ))}
+	{table.getRowModel().rows.map((row) => (
+		<tr
+			key={row.id}
+			className={row.getIsSelected() ? 'selected' : ''}
+			onClick={row.getToggleSelectedHandler()}
+		>
+			{row.getVisibleCells().map((cell) => (
+				<td key={cell.id}>{/* ... */}</td>
+			))}
+		</tr>
+	))}
 </tbody>
 ```
 
@@ -158,6 +157,7 @@ const columns = [
 ## API Reference
 
 ### Core APIs
+
 - `getRowId(row: Row): string`  
   Define a unique identifier for rows.
 
@@ -168,6 +168,7 @@ const columns = [
   Handler to toggle all rows' selection.
 
 ### Row Methods
+
 - `row.getIsSelected(): boolean`  
   Check if a row is selected.
 
@@ -188,10 +189,12 @@ const columns = [
 ---
 
 ### Related Features
-- [Row Pinning](row-pinning.md)  
+
+- [Row Pinning](row-pinning.md)
 - [Sorting](sorting.md)
 
 > **Note:** This documentation is part of the TanStack Table v8 ecosystem. For updates, visit [GitHub](https://github.com/TanStack/table).
+
 ```
 
 ---
@@ -211,6 +214,6 @@ const columns = [
 
 ### Contributing
 Found an issue? [Edit this guide on GitHub](https://github.com/TanStack/table/edit/main/docs/row-selection.md).
-``` 
+```
 
 This structure maintains all examples, uses proper markdown syntax, and organizes content into logical sections while preserving the original examples and API references.

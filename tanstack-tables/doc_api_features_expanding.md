@@ -1,6 +1,4 @@
-
-
-```markdown
+````markdown
 # Expanding APIs
 
 ## State
@@ -13,9 +11,10 @@ The expanding state is stored on the table using the following shape:
 export type ExpandedState = true | Record<string, boolean>;
 
 export type ExpandedTableState = {
-  expanded: ExpandedState;
+	expanded: ExpandedState;
 };
 ```
+````
 
 ---
 
@@ -32,7 +31,7 @@ Toggles the expanded state of the row. If `expanded` is provided, sets the state
 ### getIsExpanded
 
 ```typescript
-getIsExpanded: () => boolean
+getIsExpanded: () => boolean;
 ```
 
 Returns whether the row is currently expanded.
@@ -40,7 +39,7 @@ Returns whether the row is currently expanded.
 ### getIsAllParentsExpanded
 
 ```typescript
-getIsAllParentsExpanded: () => boolean
+getIsAllParentsExpanded: () => boolean;
 ```
 
 Returns whether all parent rows of the row are expanded.
@@ -48,7 +47,7 @@ Returns whether all parent rows of the row are expanded.
 ### getCanExpand
 
 ```typescript
-getCanExpand: () => boolean
+getCanExpand: () => boolean;
 ```
 
 Returns whether the row can be expanded.
@@ -161,7 +160,7 @@ Resets the expanded state to its initial value. If `defaultState` is provided, r
 ### getCanSomeRowsExpand
 
 ```typescript
-getCanSomeRowsExpand: () => boolean
+getCanSomeRowsExpand: () => boolean;
 ```
 
 Returns whether any rows can be expanded.
@@ -177,7 +176,7 @@ Returns a handler to toggle all rows' expanded state. Intended for checkboxes.
 ### getIsSomeRowsExpanded
 
 ```typescript
-getIsSomeRowsExpanded: () => boolean
+getIsSomeRowsExpanded: () => boolean;
 ```
 
 Returns whether any rows are currently expanded.
@@ -185,7 +184,7 @@ Returns whether any rows are currently expanded.
 ### getIsAllRowsExpanded
 
 ```typescript
-getIsAllRowsExpanded: () => boolean
+getIsAllRowsExpanded: () => boolean;
 ```
 
 Returns whether all rows are expanded.
@@ -193,7 +192,7 @@ Returns whether all rows are expanded.
 ### getExpandedDepth
 
 ```typescript
-getExpandedDepth: () => number
+getExpandedDepth: () => number;
 ```
 
 Returns the maximum depth of expanded rows.
@@ -201,7 +200,7 @@ Returns the maximum depth of expanded rows.
 ### getExpandedRowModel
 
 ```typescript
-getExpandedRowModel: () => RowModel<TData>
+getExpandedRowModel: () => RowModel<TData>;
 ```
 
 Returns the row model after expansion is applied.
@@ -209,7 +208,7 @@ Returns the row model after expansion is applied.
 ### getPreExpandedRowModel
 
 ```typescript
-getPreExpandedRowModel: () => RowModel<TData>
+getPreExpandedRowModel: () => RowModel<TData>;
 ```
 
 Returns the row model before expansion is applied.
@@ -237,17 +236,17 @@ Returns the row model before expansion is applied.
 </script>
 
 {#each table.getExpandedRowModel() as row}
-  <div>
-    {row.original.title}
-    {#if row.getCanExpand()}
-      <button on:click={row.getToggleExpandedHandler()}>
-        {row.getIsExpanded() ? 'Collapse' : 'Expand'}
-      </button>
-    {/if}
-  </div>
-  {#if row.getIsExpanded()}
-    <div>{row.subRows}</div>
-  {/if}
+	<div>
+		{row.original.title}
+		{#if row.getCanExpand()}
+			<button on:click={row.getToggleExpandedHandler()}>
+				{row.getIsExpanded() ? 'Collapse' : 'Expand'}
+			</button>
+		{/if}
+	</div>
+	{#if row.getIsExpanded()}
+		<div>{row.subRows}</div>
+	{/if}
 {/each}
 ```
 
@@ -257,6 +256,8 @@ Returns the row model before expansion is applied.
 
 - [Grouping](grouping.md)
 - [Pagination](pagination.md)
+
 ```
 
 This documentation format organizes the content into clear sections, includes all examples, and maintains the technical details while omitting non-technical sections like privacy notices. The code snippets are formatted with syntax highlighting, and key functions/options are described with their parameters and return types.
+```

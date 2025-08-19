@@ -1,6 +1,4 @@
-
-
-```markdown
+````markdown
 # ColumnDef APIs
 
 ## Options
@@ -10,6 +8,7 @@
 **Type**: `string`
 
 The unique identifier for the column. Optional when:
+
 - An accessor column is created with an object key accessor
 - The column header is defined as a string.
 
@@ -41,7 +40,8 @@ The child column defs to include in a group column.
 
 ### `header`
 
-**Type**:  
+**Type**:
+
 ```typescript
 | string
 | ((props: {
@@ -50,10 +50,12 @@ The child column defs to include in a group column.
     column: Column<TData>
   }) => unknown)
 ```
+````
 
 The header to display for the column. If a string is passed, it can be used as a default for the column ID. If a function is passed, it will be passed a props object for the header and should return the rendered header value (type depends on the adapter).
 
 **Example**:
+
 ```tsx
 header: "Name",
 // OR
@@ -64,7 +66,8 @@ header: ({ column }) => <div>{column.id}</div>
 
 ### `footer`
 
-**Type**:  
+**Type**:
+
 ```typescript
 | string
 | ((props: {
@@ -77,6 +80,7 @@ header: ({ column }) => <div>{column.id}</div>
 The footer to display for the column. If a function is passed, it will be passed a props object for the footer and should return the rendered footer value.
 
 **Example**:
+
 ```tsx
 footer: "Total",
 // OR
@@ -87,7 +91,8 @@ footer: ({ column }) => <div>{column.id}</div>
 
 ### `cell`
 
-**Type**:  
+**Type**:
+
 ```typescript
 | string
 | ((props: {
@@ -103,6 +108,7 @@ footer: ({ column }) => <div>{column.id}</div>
 The cell to display for each row in the column. If a function is passed, it will be passed a props object for the cell and should return the rendered cell value.
 
 **Example**:
+
 ```tsx
 cell: "Default",
 // OR
@@ -118,13 +124,14 @@ cell: ({ getValue }) => <div>{getValue()}</div>
 Metadata associated with the column. Accessible via `column.columnDef.meta`. Extendable via declaration merging:
 
 **Example**:
+
 ```typescript
 import '@tanstack/svelte-table'; // or other framework
 
 declare module '@tanstack/svelte-table' {
-  interface ColumnMeta<TData extends RowData, TValue> {
-    foo: string;
-  }
+	interface ColumnMeta<TData extends RowData, TValue> {
+		foo: string;
+	}
 }
 ```
 
@@ -139,15 +146,16 @@ To add custom metadata to columns, use TypeScript declaration merging:
 ```typescript
 // Example of extending ColumnMeta
 declare module '@tanstack/svelte-table' {
-  interface ColumnMeta<TData extends RowData, TValue> {
-    customField: string;
-  }
+	interface ColumnMeta<TData extends RowData, TValue> {
+		customField: string;
+	}
 }
 ```
 
 ---
 
 ### Notes
+
 - Ensure all examples are included as code blocks.
 - Parameters and return types are described clearly.
 - The `meta` section includes instructions for TypeScript extensions.
@@ -156,6 +164,8 @@ declare module '@tanstack/svelte-table' {
 
 **Edit on GitHub**  
 [Link to GitHub](https://github.com/TanStack/table/blob/main/docs/svelte/column-def-apis.md)
+
 ```
 
 This documentation retains all examples, structures the options clearly, and includes the TypeScript extension example. The privacy notice and UI elements from the original text are omitted as they are not part of the technical documentation.
+```

@@ -1,6 +1,4 @@
-
-
-```markdown
+````markdown
 # Column Sizing API
 
 ## State
@@ -9,21 +7,22 @@ The column sizing state is stored on the table using the following shape:
 
 ```typescript
 export type ColumnSizingTableState = {
-  columnSizing: ColumnSizing;
-  columnSizingInfo: ColumnSizingInfoState;
+	columnSizing: ColumnSizing;
+	columnSizingInfo: ColumnSizingInfoState;
 };
 
 export type ColumnSizing = Record<string, number>;
 
 export type ColumnSizingInfoState = {
-  startOffset: null | number;
-  startSize: null | number;
-  deltaOffset: null | number;
-  deltaPercentage: null | number;
-  isResizingColumn: false | string;
-  columnSizingStart: [string, number][];
+	startOffset: null | number;
+	startSize: null | number;
+	deltaOffset: null | number;
+	deltaPercentage: null | number;
+	isResizingColumn: false | string;
+	columnSizingStart: [string, number][];
 };
 ```
+````
 
 ---
 
@@ -74,7 +73,7 @@ The maximum allowed size for the column.
 ### `getSize()`
 
 ```typescript
-getSize: () => number
+getSize: () => number;
 ```
 
 Returns the current size of the column.
@@ -84,7 +83,7 @@ Returns the current size of the column.
 ### `getStart(position?)`
 
 ```typescript
-getStart: (position?: ColumnPinningPosition) => number
+getStart: (position?: ColumnPinningPosition) => number;
 ```
 
 Returns the offset measurement along the row-axis (e.g., x-axis) for the column, summing preceding columns' sizes. Useful for positioning.
@@ -94,7 +93,7 @@ Returns the offset measurement along the row-axis (e.g., x-axis) for the column,
 ### `getAfter(position?)`
 
 ```typescript
-getAfter: (position?: ColumnPinningPosition) => number
+getAfter: (position?: ColumnPinningPosition) => number;
 ```
 
 Returns the offset measurement for succeeding columns, useful for positioning.
@@ -104,7 +103,7 @@ Returns the offset measurement for succeeding columns, useful for positioning.
 ### `getCanResize()`
 
 ```typescript
-getCanResize: () => boolean
+getCanResize: () => boolean;
 ```
 
 Returns `true` if the column can be resized.
@@ -114,7 +113,7 @@ Returns `true` if the column can be resized.
 ### `getIsResizing()`
 
 ```typescript
-getIsResizing: () => boolean
+getIsResizing: () => boolean;
 ```
 
 Returns `true` if the column is currently being resized.
@@ -136,7 +135,7 @@ Resets the column size to its initial value.
 ### `getSize()`
 
 ```typescript
-getSize: () => number
+getSize: () => number;
 ```
 
 Returns the total size of the header (sum of leaf column sizes).
@@ -146,7 +145,7 @@ Returns the total size of the header (sum of leaf column sizes).
 ### `getStart(position?)`
 
 ```typescript
-getStart: (position?: ColumnPinningPosition) => number
+getStart: (position?: ColumnPinningPosition) => number;
 ```
 
 Returns the offset of the header, summing preceding headers' sizes.
@@ -260,7 +259,7 @@ Resets column sizing info to its initial state.
 ### `getTotalSize()`
 
 ```typescript
-getTotalSize: () => number
+getTotalSize: () => number;
 ```
 
 Returns the total size of all leaf columns.
@@ -270,7 +269,7 @@ Returns the total size of all leaf columns.
 ### `getLeftTotalSize()`
 
 ```typescript
-getLeftTotalSize: () => number
+getLeftTotalSize: () => number;
 ```
 
 Returns the total size of left-pinned columns (if pinning is enabled).
@@ -280,7 +279,7 @@ Returns the total size of left-pinned columns (if pinning is enabled).
 ### `getCenterTotalSize()`
 
 ```typescript
-getCenterTotalSize: () => number
+getCenterTotalSize: () => number;
 ```
 
 Returns the total size of non-pinned (center) columns.
@@ -290,7 +289,7 @@ Returns the total size of non-pinned (center) columns.
 ### `getRightTotalSize()`
 
 ```typescript
-getRightTotalSize: () => number
+getRightTotalSize: () => number;
 ```
 
 Returns the total size of right-pinned columns (if pinning is enabled).
@@ -301,6 +300,8 @@ Returns the total size of right-pinned columns (if pinning is enabled).
 
 - [Column Pinning](#column-pinning)
 - [Column Visibility](#column-visibility)
-``` 
+
+```
 
 This documentation structure organizes the API details into clear sections, includes all examples (TypeScript types, function signatures), and maintains the original content's intent while improving readability. The typos (e.g., `enableResizing`) are preserved as in the original input unless explicitly instructed to correct them.
+```

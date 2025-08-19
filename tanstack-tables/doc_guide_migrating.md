@@ -1,9 +1,8 @@
-
-
-```markdown
+````markdown
 # Migrating to TanStack Table v8
 
 ## Table of Contents
+
 - [Notable Changes](#notable-changes)
 - [Installation](#installation)
 - [Updating Table Options](#updating-table-options)
@@ -15,6 +14,7 @@
 ---
 
 ## Notable Changes
+
 - Full rewrite in TypeScript with included types.
 - Removed plugin system; replaced with tree-shakable row model imports.
 - New features like column pinning.
@@ -24,71 +24,78 @@
 ---
 
 ## Installation
+
 ### Uninstall Old Packages
+
 ```bash
 npm uninstall react-table @types/react-table
 ```
+````
 
 ### Install New Package
+
 ```bash
 npm install @tanstack/react-table
 ```
 
 ### Import Changes
+
 ```tsx
 // Before
 import { useTable, usePagination, useSortBy } from 'react-table';
 
 // After
-import { 
-  useReactTable,
-  getCoreRowModel,
-  getPaginationRowModel,
-  getSortedRowModel 
+import {
+	useReactTable,
+	getCoreRowModel,
+	getPaginationRowModel,
+	getSortedRowModel
 } from '@tanstack/react-table';
 ```
 
 ---
 
 ## Updating Table Options
+
 **Old Syntax**
+
 ```tsx
-const tableInstance = useTable(
-  { columns, data },
-  useSortBy,
-  usePagination, 
-);
+const tableInstance = useTable({ columns, data }, useSortBy, usePagination);
 ```
 
 **New Syntax**
+
 ```tsx
 const tableInstance = useReactTable({
-  columns,
-  data,
-  getCoreRowModel: getCoreRowModel(),
-  getPaginationRowModel: getPaginationRowModel(),
-  getSortedRowModel: getSortedRowModel(),
+	columns,
+	data,
+	getCoreRowModel: getCoreRowModel(),
+	getPaginationRowModel: getPaginationRowModel(),
+	getSortedRowModel: getSortedRowModel()
 });
 ```
 
 ---
 
 ## Column Definitions
+
 ### Accessor Changes
-| Old Property       | New Property       |
-|--------------------|--------------------|
-| `accessor`         | `accessorKey` or `accessorFn` |
-| `width`           | `size`            |
-| `disableSortBy`   | `enableSorting`   |
+
+| Old Property    | New Property                  |
+| --------------- | ----------------------------- |
+| `accessor`      | `accessorKey` or `accessorFn` |
+| `width`         | `size`                        |
+| `disableSortBy` | `enableSorting`               |
 
 **Example Column Definitions**
+
 ```tsx
 // Using columnHelper for better TypeScript
 const columns = [
-  columnHelper.accessor('firstName', { 
+  columnHelper.accessor('firstName', {
     header: 'First Name',
   }),
-  columnHelper.accessor(row => row.lastName, { 
+  columnHelper.accessor(row => row.lastName, {
     header: () => <span>Last Name</span>,
   }),
 ];
@@ -107,24 +114,27 @@ const columns = [
 ---
 
 ## Migrating Table Markup
+
 ### Header Rendering
+
 ```tsx
 // Before
 <th {...header.getHeaderProps()}>{cell.render('Header')}</th>
 
 // After
-<th 
-  colSpan={header.colSpan} 
+<th
+  colSpan={header.colSpan}
   key={column.id}
 >
   {flexRender(
-    header.column.columnDef.header, 
+    header.column.columnDef.header,
     header.getContext()
   }
 </th>
 ```
 
 ### Cell Rendering
+
 ```tsx
 // Before
 <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
@@ -132,13 +142,14 @@ const columns = [
 // After
 <td key={cell.id}>
   {flexRender(
-    cell.column.columnDef.cell, 
+    cell.column.columnDef.cell,
     cell.getContext()
   }
 </td>
 ```
 
 ### Row Selection Example
+
 ```tsx
 // Old Header
 Header: ({ getToggleAllRowsSelectedProps }) => (
@@ -173,39 +184,50 @@ cell: ({ row }) => (
 ---
 
 ## Filter Function Changes
+
 **Old Filter Type**
+
 ```tsx
 (rows: Row[], id: string, filterValue: any) => Row[]
 ```
 
 **New Filter Function**
+
 ```tsx
-(row: Row, id: string, filterValue: any) => boolean
+(row: Row, id: string, filterValue: any) => boolean;
 ```
 
 ---
 
 ## Footer & Additional Notes
+
 ### Important Notes
+
 - Manual key management required for rows/cells.
 - No default styles/accessibility attributes; must be added manually.
 - Preferences stored in `IABGPP_HDR_GppString` cookie for 13 months.
 
 ### Privacy Notice
+
 - Data processing by 1507 partners requires explicit consent.
 - Geolocation and device scanning require user permission.
 
 ### Support
+
 - [Contribute to the guide](https://github.com/tanstack/table)
 - Report issues on GitHub or join Discord for help.
 
 ---
 
 ## Footer & Newsletter
+
 **Partners & Subscriptions**
-- *Your weekly dose of JavaScript news. Delivered every Monday to over 100,000 devs.*
+
+- _Your weekly dose of JavaScript news. Delivered every Monday to over 100,000 devs._
 - [Subscribe to Bytes](#)  
-  *No spam. Unsubscribe anytime.*
+  _No spam. Unsubscribe anytime._
+
 ```
 
 This documentation retains all original examples, restructures the content into a clear markdown format, and maintains the key migration steps. The code snippets are formatted with syntax highlighting, and important changes are highlighted through tables, code comparisons, and bullet points for readability.
+```

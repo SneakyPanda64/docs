@@ -1,9 +1,8 @@
-
-
-```markdown
+````markdown
 # Pagination Guide
 
 ## Introduction
+
 TanStack Table provides robust support for both client-side and server-side pagination. This guide explains how to implement and configure pagination effectively.
 
 ---
@@ -11,38 +10,43 @@ TanStack Table provides robust support for both client-side and server-side pagi
 ## Client-Side Pagination
 
 ### Should You Use Client-Side Pagination?
+
 Client-side pagination is ideal for datasets with up to ~10,000 rows. For larger datasets, consider server-side pagination or virtualization.
 
 ### Should You Use Virtualization Instead?
+
 For very large datasets, use [TanStack Virtual](https://tanstack.com/virtual) to render only visible rows, improving performance.
 
 ### Pagination Row Model
+
 Enable client-side pagination by adding the `getPaginationRowModel`:
 
 ```jsx
 import { useReactTable, getCoreRowModel, getPaginationRowModel } from '@tanstack/react-table';
 
 const table = useReactTable({
-  columns,
-  data,
-  getCoreRowModel: getCoreRowModel(),
-  getPaginationRowModel: getPaginationRowModel(),
+	columns,
+	data,
+	getCoreRowModel: getCoreRowModel(),
+	getPaginationRowModel: getPaginationRowModel()
 });
 ```
+````
 
 ---
 
 ## Manual Server-Side Pagination
 
 ### Page Count and Row Count
+
 For server-side pagination, provide `rowCount` or `pageCount` to inform the table of total data:
 
 ```jsx
 const table = useReactTable({
-  columns,
-  data,
-  manualPagination: true, // Disable client-side logic
-  rowCount: dataQuery.data?.rowCount, // Or pageCount: dataQuery.data?.pageCount,
+	columns,
+	data,
+	manualPagination: true, // Disable client-side logic
+	rowCount: dataQuery.data?.rowCount // Or pageCount: dataQuery.data?.pageCount,
 });
 ```
 
@@ -51,31 +55,33 @@ const table = useReactTable({
 ## Pagination State Management
 
 ### Managing State
+
 Control pagination state with React state hooks:
 
 ```jsx
 const [pagination, setPagination] = useState({
-  pageIndex: 0,
-  pageSize: 10,
+	pageIndex: 0,
+	pageSize: 10
 });
 
 const table = useReactTable({
-  state: { pagination },
-  onPaginationChange: setPagination,
+	state: { pagination },
+	onPaginationChange: setPagination
 });
 ```
 
 ### Initial State
+
 Set default values via `initialState`:
 
 ```jsx
 const table = useReactTable({
-  initialState: {
-    pagination: {
-      pageIndex: 2,
-      pageSize: 25,
-    },
-  },
+	initialState: {
+		pagination: {
+			pageIndex: 2,
+			pageSize: 25
+		}
+	}
 });
 ```
 
@@ -86,11 +92,12 @@ const table = useReactTable({
 ## Pagination Options
 
 ### Auto Reset Page Index
+
 Control automatic page reset on state changes:
 
 ```jsx
 const table = useReactTable({
-  autoResetPageIndex: false, // Disable automatic reset
+	autoResetPageIndex: false // Disable automatic reset
 });
 ```
 
@@ -99,6 +106,7 @@ const table = useReactTable({
 ## Pagination APIs
 
 ### Pagination Button APIs
+
 Implement navigation controls:
 
 ```jsx
@@ -128,6 +136,7 @@ Implement navigation controls:
 ```
 
 ### Pagination Info APIs
+
 Display pagination details:
 
 - `table.getPageCount()` → Total pages
@@ -136,7 +145,8 @@ Display pagination details:
 ---
 
 ## Examples
-- **Client-Side**:** Use `getPaginationRowModel` for automatic client-side logic.
+
+- **Client-Side**:\*\* Use `getPaginationRowModel` for automatic client-side logic.
 - **Server-Side:** Set `manualPagination: true` and provide `rowCount`/`pageCount`.
 - **State Management:** Use `useState` or `initialState` for page/index control.
 
@@ -145,6 +155,7 @@ Display pagination details:
 ## API Reference
 
 ### Core APIs
+
 - `getCanPreviousPage()`: Check if previous page is available.
 - `getCanNextPage()`: Check if next page is available.
 - `previousPage()`: Navigate to previous page.
@@ -153,10 +164,12 @@ Display pagination details:
 - `setPageIndex(index)`: Set current page index.
 
 ### State Management
+
 - `state.pagination`: Current pagination state.
 - `onPaginationChange`: Callback for state updates.
 
 ### Options
+
 - `manualPagination`: Enable server-side pagination.
 - `rowCount`: Total rows in dataset.
 - `pageCount`: Total pages in dataset.
@@ -165,12 +178,14 @@ Display pagination details:
 ---
 
 ## Considerations
+
 - **Performance:** Test with large datasets to ensure client-side performance.
 - **State Persistence:** Use `initialState` for default values.
 - **Server Sync:** For server-side, ensure `data` is already paginated.
 
 > **Note:** Server-side pagination requires manual data fetching and state synchronization.
-``` 
+
+```
 
 This documentation structure:
 - Organizes content into logical sections

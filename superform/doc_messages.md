@@ -1,6 +1,4 @@
-
-
-```markdown
+````markdown
 # Status Messages
 
 A status message like "Form posted" can be displayed after submitting a form. The validation object contains a message store used for this.
@@ -13,15 +11,16 @@ To display the message in your Svelte component:
 
 ```svelte
 <script>
-  import { superForm } from 'sveltekit-superforms';
+	import { superForm } from 'sveltekit-superforms';
 
-  const { form, message } = superForm(data.form);
+	const { form, message } = superForm(data.form);
 </script>
 
 {#if $message}
-  <div class="message">{$message}</div>
+	<div class="message">{$message}</div>
 {/if}
 ```
+````
 
 ---
 
@@ -34,19 +33,19 @@ import { message, superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
 
 export const actions = {
-  default: async ({ request }) => {
-    const form = await superValidate(request, zod(schema));
+	default: async ({ request }) => {
+		const form = await superValidate(request, zod(schema));
 
-    if (!form.valid) {
-      return message(form, 'Invalid form');
-    }
+		if (!form.valid) {
+			return message(form, 'Invalid form');
+		}
 
-    if (form.data.email.includes('spam')) {
-      return message(form, 'No spam please', { status: 403 });
-    }
+		if (form.data.email.includes('spam')) {
+			return message(form, 'No spam please', { status: 403 });
+		}
 
-    return message(form, 'Valid form!');
-  }
+		return message(form, 'Valid form!');
+	}
 };
 ```
 
@@ -67,7 +66,10 @@ Type the message using generics:
 ```typescript
 import { Infer, superValidate } from 'sveltekit-superforms';
 
-const form = await superValidate<Infer<typeof schema>, { status: string; text: string }>(event, zod(schema));
+const form = await superValidate<Infer<typeof schema>, { status: string; text: string }>(
+	event,
+	zod(schema)
+);
 ```
 
 ### Global Type Declaration
@@ -76,14 +78,14 @@ Define a global `Message` type in `src/app.d.ts`:
 
 ```typescript
 declare global {
-  namespace App {
-    namespace Superforms {
-      type Message = {
-        type: 'error' | 'success';
-        text: string;
-      };
-    }
-  }
+	namespace App {
+		namespace Superforms {
+			type Message = {
+				type: 'error' | 'success';
+				text: string;
+			};
+		}
+	}
 }
 ```
 
@@ -91,18 +93,15 @@ This allows omitting the generic type:
 
 ```svelte
 <script lang="ts">
-  import { superForm } from 'sveltekit-superforms';
+	import { superForm } from 'sveltekit-superforms';
 
-  const { form, message } = superForm(data.form);
+	const { form, message } = superForm(data.form);
 </script>
 
 {#if $message}
-  <div 
-    class:success={$message.type == 'success'} 
-    class:error={$message.type == 'error'}
-  >
-    {$message.text}
-  </div>
+	<div class:success={$message.type == 'success'} class:error={$message.type == 'error'}>
+		{$message.text}
+	</div>
 {/if}
 ```
 
@@ -114,13 +113,13 @@ Handle messages in event handlers:
 
 ```typescript
 const { form, enhance } = superForm(data.form, {
-  onUpdated({ form }) {
-    if (form.message) {
-      toast(form.message.text, {
-        icon: form.message.status == 'success' ? '✅' : '❌'
-      });
-    }
-  }
+	onUpdated({ form }) {
+		if (form.message) {
+			toast(form.message.text, {
+				icon: form.message.status == 'success' ? '✅' : '❌'
+			});
+		}
+	}
 });
 ```
 
@@ -134,7 +133,9 @@ const { form, enhance } = superForm(data.form, {
 ---
 
 ### Previous/Next
+
 - [← Snapshots](snapshots.md) | [Strict Mode →](strict-mode.md)
+
 ```
 
 ### Key Features Preserved:
@@ -145,3 +146,4 @@ const { form, enhance } = superForm(data.form, {
 5. **Limitations Note**: Highlights edge cases like redirects and status code behavior.
 
 This structure maintains the original information while improving readability through markdown formatting and code blocks.
+```

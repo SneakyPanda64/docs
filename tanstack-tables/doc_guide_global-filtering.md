@@ -1,6 +1,4 @@
-
-
-```markdown
+````markdown
 # Global Filtering Guide
 
 ## Client-Side vs Server-Side Filtering
@@ -16,11 +14,12 @@ To implement manual server-side filtering:
 
 ```jsx
 const table = useReactTable({
-  data,
-  columns,
-  manualFiltering: true, // Disable built-in filtering
+	data,
+	columns,
+	manualFiltering: true // Disable built-in filtering
 });
 ```
+````
 
 **Note**: When using `manualFiltering`, the table assumes data is pre-filtered.
 
@@ -34,7 +33,7 @@ Enable client-side filtering by adding:
 import { useReactTable, getFilteredRowModel } from '@tanstack/react-table';
 
 const table = useReactTable({
-  getFilteredRowModel: getFilteredRowModel(),
+	getFilteredRowModel: getFilteredRowModel()
 });
 ```
 
@@ -43,18 +42,20 @@ const table = useReactTable({
 ## Global Filter Function
 
 ### Built-in Filter Functions
+
 Choose from built-in functions like `includesString` (case-insensitive) or `equalsStringSensitive` (case-sensitive).
 
 ### Custom Filter Function
+
 Define a custom function and pass it to `globalFilterFn`:
 
 ```jsx
 const customFilterFn = (row, columnId, filterValue) => {
-  // Custom logic here
+	// Custom logic here
 };
 
 const table = useReactTable({
-  globalFilterFn: customFilterFn,
+	globalFilterFn: customFilterFn
 });
 ```
 
@@ -63,37 +64,41 @@ const table = useReactTable({
 ## Global Filter State Management
 
 ### Accessing State
+
 ```jsx
 const globalFilter = table.getState().globalFilter;
 ```
 
 ### Controlled Input Example
+
 ```jsx
 <input
-  value={globalFilter || ""}
-  onChange={(e) => table.setGlobalFilter(e.target.value || undefined)}
-  placeholder="Search..."
+	value={globalFilter || ''}
+	onChange={(e) => table.setGlobalFilter(e.target.value || undefined)}
+	placeholder="Search..."
 />
 ```
 
 ### Managing State Externally
+
 ```jsx
-const [globalFilter, setGlobalFilter] = useState("");
+const [globalFilter, setGlobalFilter] = useState('');
 
 const table = useReactTable({
-  state: { globalFilter },
-  onGlobalFilterChange: setGlobalFilter,
+	state: { globalFilter },
+	onGlobalFilterChange: setGlobalFilter
 });
 ```
 
 ---
 
 ## Initial Global Filter State
+
 Set an initial value via `initialState` or controlled state:
 
 ```jsx
 const table = useReactTable({
-  initialState: { globalFilter: "initial search term" },
+	initialState: { globalFilter: 'initial search term' }
 });
 ```
 
@@ -104,19 +109,21 @@ const table = useReactTable({
 ## Disabling Global Filtering
 
 ### Per-Column Disable
+
 ```jsx
 const columns = [
-  {
-    accessorKey: "id",
-    enableGlobalFilter: false,
-  },
+	{
+		accessorKey: 'id',
+		enableGlobalFilter: false
+	}
 ];
 ```
 
 ### Disable All Global Filtering
+
 ```jsx
 const table = useReactTable({
-  enableGlobalFilter: false,
+	enableGlobalFilter: false
 });
 ```
 
@@ -125,28 +132,29 @@ const table = useReactTable({
 ## Example Usage
 
 ### Basic Setup with Input
+
 ```jsx
 function Table({ data, columns }) {
-  const [globalFilter, setGlobalFilter] = useState("");
+	const [globalFilter, setGlobalFilter] = useState('');
 
-  const table = useReactTable({
-    data,
-    columns,
-    getFilteredRowModel: getFilteredRowModel(),
-    state: { globalFilter },
-    onGlobalFilterChange: setGlobalFilter,
-  });
+	const table = useReactTable({
+		data,
+		columns,
+		getFilteredRowModel: getFilteredRowModel(),
+		state: { globalFilter },
+		onGlobalFilterChange: setGlobalFilter
+	});
 
-  return (
-    <div>
-      <input
-        value={globalFilter || ""}
-        onChange={(e) => setGlobalFilter(e.target.value)}
-        placeholder="Search..."
-      />
-      {/* Table implementation */}
-    </div>
-  );
+	return (
+		<div>
+			<input
+				value={globalFilter || ''}
+				onChange={(e) => setGlobalFilter(e.target.value)}
+				placeholder="Search..."
+			/>
+			{/* Table implementation */}
+		</div>
+	);
 }
 ```
 
@@ -155,6 +163,7 @@ function Table({ data, columns }) {
 ## API References
 
 ### `GlobalFilter` State Shape
+
 ```jsx
 interface GlobalFilter {
   globalFilter: any;
@@ -162,6 +171,7 @@ interface GlobalFilter {
 ```
 
 ### Key Options
+
 - `globalFilterFn`: Function to determine filtering logic
 - `manualFiltering`: Bypass built-in filtering
 - `enableGlobalFilter`: Enable/disable filtering globally or per-column
@@ -169,6 +179,8 @@ interface GlobalFilter {
 ---
 
 For more details, refer to the [TanStack Table documentation](https://tanstack.com/table).
+
 ```
 
 This documentation format retains all examples, uses proper markdown syntax, and organizes content into logical sections while omitting non-technical content like privacy notices and unrelated UI elements.
+```
