@@ -1,0 +1,98 @@
+[
+    {
+        "file": ".github/docs/superform/docapi-documentation_droppable.md"
+    },
+    {
+        "file": ".github/docs/superform/doc#performance.md"
+    },
+    {
+        "file": ".github/docs/superform/doc#accessibility.md"
+    },
+    {
+        "file": ".github/docs/superform/docapi-documentation_draggable.md"
+    },
+    {
+        "file": ".github/docs/superform/docpresets_sortable_sortable-context.md"
+    },
+    {
+        "file": ".github/docs/superform/docapi-documentation_context-provider_collision-detection-algorithms.md"
+    },
+    {
+        "file": ".github/docs/superform/docguides_accessibility#screen-reader-announcements-using-live-regions.md"
+    },
+    {
+        "file": ".github/docs/superform/docapi-documentation_context-provider_collision-detection-algorithms#custom-collision-detection-strategies.md"
+    },
+    {
+        "file": ".github/docs/superform/doc#synthetic-events.md"
+    },
+    {
+        "file": ".github/docs/superform/docintroduction_getting-started.md"
+    },
+    {
+        "file": ".github/docs/superform/docapi-documentation_sensors_pointer.md"
+    },
+    {
+        "file": ".github/docs/superform/docapi-documentation_context-provider_use-dnd-monitor.md"
+    },
+    {
+        "file": ".github/docs/superform/docapi-documentation_context-provider_usedndcontext.md"
+    },
+    {
+        "file": ".github/docs/superform/docapi-documentation_sensors_mouse.md"
+    },
+    {
+        "file": ".github/docs/superform/docapi-documentation_modifiers.md"
+    },
+    {
+        "file": ".github/docs/superform/docapi-documentation_draggable_usedraggable.md"
+    },
+    {
+        "file": ".github/docs/superform/docapi-documentation_draggable_drag-overlay.md"
+    },
+    {
+        "file": ".github/docs/superform/docpresets_sortable.md"
+    },
+    {
+        "file": ".github/docs/superform/docintroduction_installation.md"
+    },
+    {
+        "file": ".github/docs/superform/docguides_accessibility.md"
+    },
+    {
+        "file": ".github/docs/superform/docapi-documentation_droppable_usedroppable.md"
+    },
+    {
+        "file": ".github/docs/superform/docguides_accessibility#screen-reader-instructions.md"
+    },
+    {
+        "file": ".github/docs/superform/docapi-documentation_sensors_touch.md"
+    },
+    {
+        "file": ".github/docs/superform/doc.md"
+    },
+    {
+        "file": ".github/docs/superform/doc#architecture.md"
+    },
+    {
+        "file": ".github/docs/superform/docapi-documentation_draggable_usedraggable#attributes.md"
+    },
+    {
+        "file": ".github/docs/superform/doc#minimizing-dom-mutations.md"
+    },
+    {
+        "file": ".github/docs/superform/docapi-documentation_sensors_keyboard.md"
+    },
+    {
+        "file": ".github/docs/superform/doc#extensibility.md"
+    },
+    {
+        "file": ".github/docs/superform/docapi-documentation_sensors.md"
+    },
+    {
+        "file": ".github/docs/superform/docpresets_sortable_usesortable.md"
+    },
+    {
+        "file": ".github/docs/superform/docapi-documentation_context-provider.md"
+    }
+]
